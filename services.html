@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" href="image/Logo.png" type="image/png">
+    <title>Services</title>
+</head>
+<body>
+    
+
+     <!-- PIXORA LOADER -->
+<div id="px-loader">
+  <div class="px-loader-inner">
+    <div class="px-logo">
+      <span class="px-logo-p">Pixora</span><em class="px-logo-d"> Digital</em>
+    </div>
+    <div class="px-tagline">Where Ideas Ignite</div>
+    <div class="px-bar-wrap">
+      <div class="px-bar" id="pxBar"></div>
+    </div>
+    <div class="px-percent" id="pxPercent">0%</div>
+  </div>
+</div>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="logo"><img src="image/Logo-with-name.png" alt="Pixora-Digital"></div>
+  <ul class="nav-links">
+  <li><a href="index.html" class="nav-link">Home</a></li>
+  <li><a href="about.html" class="nav-link">About</a></li>
+  <li><a href="services.html" class="nav-link">Services</a></li>
+  <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+  <li><a href="contact.html" class="nav-link">Contact</a></li>
+</ul>
+
+<button class="nav-cta" onclick="window.location.href='contact.html'">
+  Get Started →
+</button>
+
+  <div class="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- ===================== SERVICES ===================== -->
+<div id="services" class="page">
+  <div class="services-hero">
+    <div class="section-label reveal" style="justify-content:center">What We Offer</div>
+    <h1 class="animate">Full-Spectrum<br><span style="color:var(--accent)">Digital Services</span></h1>
+    <p class="animate delay-2">From brand inception to market domination — Pixora Digital delivers at every stage of your growth journey.</p>
+  </div>
+
+  <div class="services-detailed">
+    <div class="service-detail reveal">
+      <div><div class="service-detail-icon">🎨</div></div>
+      <div class="service-detail-content">
+        <h2>Branding Strategy & Identity</h2>
+        <p>Your brand is more than a logo. It's a promise. We build comprehensive brand systems that communicate your values, differentiate you from competitors, and create emotional connections with your audience.</p>
+        <ul class="feature-list">
+          <li>Brand positioning & messaging strategy</li>
+          <li>Logo design & visual identity systems</li>
+          <li>Brand guidelines & style manuals</li>
+          <li>Tone of voice & copywriting frameworks</li>
+          <li>Brand audit & refresh services</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-detail reveal">
+      <div><div class="service-detail-icon">💻</div></div>
+      <div class="service-detail-content">
+        <h2>Web Design & Development</h2>
+        <p>We design and engineer websites that look extraordinary and perform even better. From marketing sites to complex web applications, every line of code serves your business objectives.</p>
+        <ul class="feature-list">
+          <li>Custom website design</li>
+          <li>React, PHP and modern web development</li>
+          <li>E-commerce platforms (Shopify, WooCommerce)</li>
+          <li>CMS setup and content strategy</li>
+          <li>Performance optimization & Core Web Vitals</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-detail reveal">
+      <div><div class="service-detail-icon">🪶</div></div>
+      <div class="service-detail-content">
+        <h2>UI/UX Design (Web & Mobile Applications)</h2>
+        <p>Create seamless, engaging, and user-friendly digital experiences that not only look stunning but also drive real results. Our UI/UX design approach focuses on usability, aesthetics, and conversion optimization for both websites and applications.</p>
+        <ul class="feature-list">
+          <li>User research & behavior analysis</li>
+          <li>Wireframing & prototyping (Figma, Adobe XD)</li>
+          <li>Modern UI design for websites & mobile apps</li>
+          <li>UX optimization for better user journeys</li>
+          <li>Interactive & conversion-focused layouts</li>
+          <li>Usability testing & design improvements</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-detail reveal">
+      <div><div class="service-detail-icon">🖼️</div></div>
+      <div class="service-detail-content">
+        <h2>Graphic Design</h2>
+        <p>Bring your brand to life with creative and impactful graphic design that captures attention and communicates your message effectively.</p>
+        <ul class="feature-list">
+          <li>Social media creatives</li>
+          <li>Ad banners & promotional designs</li>
+          <li>Business cards, brochures, flyers</li>
+          <li>Logo & brand visuals</li>
+          <li>Custom marketing creatives</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-detail reveal">
+      <div><div class="service-detail-icon">📈</div></div>
+      <div class="service-detail-content">
+        <h2>Meta Ads (Facebook & Instagram Ads)</h2>
+        <p>Drive targeted traffic, generate leads, and increase sales with high-converting Meta Ads campaigns. We design, test, and optimize campaigns to deliver maximum ROI.</p>
+        <ul class="feature-list">
+          <li>Audience research & targeting</li>
+          <li>Ad creatives (image, video, copy)</li>
+          <li>Campaign setup & A/B testing</li>
+          <li>Retargeting & funnel optimization</li>
+          <li>Performance tracking & reporting</li>
+        </ul>
+      </div>
+    </div>
+    <div class="service-detail reveal">
+      <div><div class="service-detail-icon">📱</div></div>
+      <div class="service-detail-content">
+        <h2>Social Media Management</h2>
+        <p>Build a community, not just a following. We manage your social presence with original content, consistent engagement, and a strategy that grows both reach and meaningful connections.</p>
+        <ul class="feature-list">
+          <li>Platform strategy (Instagram, LinkedIn, YouTube)</li>
+          <li>Content calendar & publishing</li>
+          <li>Original design, copy, and short-form video</li>
+          <li>Community management & DM handling</li>
+          <li>Monthly analytics & growth reporting</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="service-detail reveal">
+      <div><div class="service-detail-icon">🔝</div></div>
+      <div class="service-detail-content">
+        <h2>SEO & Content Marketing</h2>
+        <p>Improve your website visibility and rank higher on search engines like Google with our advanced SEO strategies. We focus on long-term growth and organic traffic.</p>
+        <ul class="feature-list">
+          <li>Keyword research & competitor analysis</li>
+          <li>On-page SEO optimization</li>
+          <li>Technical SEO (speed, indexing, structure)</li>
+          <li>Off-page SEO & backlinks</li>
+          <li>Monthly ranking & traffic reports</li>
+        </ul>
+      </div>
+    </div>
+     <div class="service-detail reveal">
+      <div><div class="service-detail-icon">🎬</div></div>
+      <div class="service-detail-content">
+        <h2>Motion & Video Production</h2>
+        <p>Create powerful visual stories that capture attention, boost engagement, and elevate your brand presence. From promotional videos to social media reels, we produce high-quality motion content designed to convert viewers into customers.</p>
+        <ul class="feature-list">
+          <li>Brand promotional videos & ads</li>
+          <li>Social media reels & short-form content</li>
+          <li>Explainer & animated videos</li>
+          <li>Product showcase videos</li>
+          <li>Video editing, transitions & effects</li>
+          <li>Motion graphics & visual storytelling</li>
+
+        </ul>
+      </div>
+    </div>
+     <div class="service-detail reveal">
+      <div><div class="service-detail-icon">🖨️</div></div>
+      <div class="service-detail-content">
+        <h2>All Types of Printing</h2>
+        <p>Get high-quality printing solutions for all your business and branding needs. We ensure premium materials, sharp prints, and professional finishing.</p>
+        <ul class="feature-list">
+          <li>Visiting cards & letterheads</li>
+          <li>Brochures, flyers & posters</li>
+          <li>Banners & hoardings</li>
+          <li>Packaging & labels</li>
+          <li>Custom print solutions</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div class="process-section">
+    <div class="section-label reveal" style="justify-content:center">How We Work</div>
+    <h2 class="section-title reveal" style="text-align:center; margin-bottom:0">Our <span>Process</span></h2>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="ps-num">01</div>
+        <h4>Discovery</h4>
+        <p>We dive deep into your business, audience, competitors, and goals. No assumptions — only research.</p>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">02</div>
+        <h4>Strategy</h4>
+        <p>We design a custom roadmap tailored to your timeline, budget, and growth ambitions.</p>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">03</div>
+        <h4>Creation</h4>
+        <p>Our creative and tech teams execute with precision, presenting work in iterative review cycles.</p>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">04</div>
+        <h4>Launch</h4>
+        <p>We deploy, monitor, and fine-tune to ensure everything works flawlessly from day one.</p>
+      </div>
+      <div class="process-step">
+        <div class="ps-num">05</div>
+        <h4>Grow</h4>
+        <p>Ongoing optimization, reporting, and strategic pivots to keep you ahead of the curve.</p>
+      </div>
+    </div>
+  </div>
+
+<!-- PRICING -->
+<!-- 
+  <div class="pricing-section">
+    <div class="section-label reveal" style="justify-content:center">Investment</div>
+    <h2 class="section-title reveal" style="text-align:center">Transparent <span>Pricing</span></h2>
+    <div class="pricing-grid reveal">
+      <div class="pricing-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price"><sup>₹</sup>25,000<span>/mo</span></div>
+        <p style="font-size:0.88rem;color:var(--muted);margin-bottom:20px">Perfect for new businesses ready to establish their digital presence.</p>
+        <ul class="plan-features">
+          <li>Brand identity package</li>
+          <li>5-page responsive website</li>
+          <li>Basic SEO setup</li>
+          <li>Social media setup (2 platforms)</li>
+          <li>Monthly performance report</li>
+        </ul>
+        <button class="btn-secondary" style="width:100%;padding:14px" onclick="window.location.href='contact.html'">Get Started</button>
+      </div>
+      <div class="pricing-card featured">
+        <div class="featured-badge">Most Popular</div>
+        <div class="plan-name">Growth</div>
+        <div class="plan-price"><sup>₹</sup>65,000<span>/mo</span></div>
+        <p style="font-size:0.88rem;color:var(--muted);margin-bottom:20px">For brands ready to scale with full-service digital marketing.</p>
+        <ul class="plan-features">
+          <li>Everything in Starter</li>
+          <li>Custom web application</li>
+          <li>Google + Meta ad campaigns (₹50K ad spend)</li>
+          <li>Social media management (4 platforms)</li>
+          <li>Weekly strategy calls</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <button class="btn-primary" style="width:100%;padding:14px" onclick="window.location.href='contact.html'">Start Growing</button>
+      </div>
+      <div class="pricing-card">
+        <div class="plan-name">Enterprise</div>
+        <div class="plan-price">Custom</div>
+        <p style="font-size:0.88rem;color:var(--muted);margin-bottom:20px">Full-stack agency partnership for high-growth companies.</p>
+        <ul class="plan-features">
+          <li>Everything in Growth</li>
+          <li>Dedicated creative team</li>
+          <li>Unlimited campaigns & assets</li>
+          <li>Video & motion production</li>
+          <li>C-suite strategy advisory</li>
+          <li>24/7 priority support</li>
+        </ul>
+        <button class="btn-secondary" style="width:100%;padding:14px" onclick="window.location.href='contact.html'">Talk to Us</button>
+      </div>
+    </div>
+  </div> -->
+
+  <div class="cta-banner reveal" style="margin:0 5% 80px">
+    <div><h2>Not Sure What <span style="color:var(--accent)">You Need?</span></h2><p>Book a free 30-minute strategy call. We'll figure it out together.</p></div>
+    <button class="btn-primary" onclick="window.location.href='contact.html'">Book Free Call →</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <div class="logo"><img src="image/Logo-with-name.png" alt="Pixora-Digital"></div>
+      <p>Where bold ideas meet sharp execution. We create digital experiences that define brands and drive growth.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#">Branding Strategy</a></li>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">UI/UX Design</a></li>
+        <li><a href="#">Graphic Design</a></li>
+        <li><a href="#">Meta Ads</a></li>
+        <li><a href="#">SEO</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:info.pixoradigital@gmail.com">info.pixoradigital@gmail.com</a></li>
+        <li><a href="tel:+918400008487">+91 84000 08487</a></li>
+        <li><a href="#">Sky Mall, Morbi, Gujrat 363641</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <p>© 2026 Pixora Digital. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#" class="social-link">𝕏</a>
+      <a href="#" class="social-link">in</a>
+      <a href="#" class="social-link">ig</a>
+      <a href="#" class="social-link">fb</a>
+    </div>
+  </div>
+</div>
+
+<script src="js/script.js"></script>
+
+<script>
+const currentPage = window.location.pathname.split("/").pop();
+
+document.querySelectorAll(".nav-link").forEach(link => {
+  if(link.getAttribute("href") === currentPage){
+    link.classList.add("active");
+  }
+});
+</script>
+
+</body>
+</html>

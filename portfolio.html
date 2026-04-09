@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Pixora Digital</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="icon" href="image/Logo.png" type="image/png">
+</head>
+<body>
+
+
+     <!-- PIXORA LOADER -->
+<div id="px-loader">
+  <div class="px-loader-inner">
+    <div class="px-logo">
+      <span class="px-logo-p">Pixora</span><em class="px-logo-d"> Digital</em>
+    </div>
+    <div class="px-tagline">Where Ideas Ignite</div>
+    <div class="px-bar-wrap">
+      <div class="px-bar" id="pxBar"></div>
+    </div>
+    <div class="px-percent" id="pxPercent">0%</div>
+  </div>
+</div>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+<div class="logo"><img src="image/Logo-with-name.png" alt="Pixora-Digital"></div>
+  <ul class="nav-links">
+  <li><a href="index.html" class="nav-link">Home</a></li>
+  <li><a href="about.html" class="nav-link">About</a></li>
+  <li><a href="services.html" class="nav-link">Services</a></li>
+  <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+  <li><a href="contact.html" class="nav-link">Contact</a></li>
+</ul>
+
+<button class="nav-cta" onclick="window.location.href='contact.html'">
+  Get Started →
+</button>
+
+  <div class="hamburger" onclick="toggleMobileMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-tag">🏆 Client Work</div>
+  <h1>Our <span class="accent">Portfolio</span><br>— Built to Impress</h1>
+  <p>Every project tells a story. Here's a look at the brands we've helped grow, the websites we've engineered, and the digital experiences we've crafted.</p>
+  <div class="hero-count">
+    <div class="hc-item"><div class="hc-num" id="cnt1">0</div><div class="hc-label">Projects</div></div>
+    <div class="hc-item"><div class="hc-num" id="cnt2">0</div><div class="hc-label">Happy Clients</div></div>
+    <div class="hc-item"><div class="hc-num" id="cnt3">0</div><div class="hc-label">Industries</div></div>
+  </div>
+</div>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All Work</button>
+  <button class="filter-btn" data-filter="web">Web Development</button>
+  <button class="filter-btn" data-filter="ecom">E-Commerce</button>
+  <button class="filter-btn" data-filter="brand">Branding</button>
+  <button class="filter-btn" data-filter="seo">SEO</button>
+  <button class="filter-btn" data-filter="app">Web App</button>
+</div>
+
+<!-- PORTFOLIO GRID -->
+<div class="portfolio-grid" id="grid">
+
+  <div class="p-card" data-cat="web" style="animation-delay:.05s">
+    <div class="p-thumb">
+      <div class="thumb-placeholder g1">
+        <div class="thumb-grid"><img src="image/spd.jpeg" alt=""></div>
+        <div class="thumb-icon">🏨</div>
+        <div class="thumb-domain">spdchocolate.com</div>
+      </div>
+      <div class="p-overlay">
+        <a href="https://spdchocolate.com/" target="_blank" class="visit-btn">Visit Site<span class="visit-icon">↗</span></a>
+      </div>
+    </div>
+    <div class="p-body">
+      <div class="p-tags"><span class="p-tag tag-web">Web Development</span></div>
+      <div class="p-title">SPD Chocolates</div>
+      <div class="p-desc">SPD Chocolates offers premium chocolates, dry fruit chocolates, and luxury gift boxes crafted for every special moment.</div>
+      <div class="p-footer">
+        <a href="https://spdchocolate.com/" target="_blank" class="p-link">View Live Site →</a>
+        <span class="p-year">2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-card" data-cat="web" data-cat="seo" style="animation-delay:.1s">
+    <div class="p-thumb">
+      <div class="thumb-placeholder g2">
+        <div class="thumb-grid"><img src="image/gyaantrek.jpeg" alt=""></div>        
+        <div class="thumb-grid"></div>
+        <div class="thumb-icon">🛍️</div>
+        <div class="thumb-domain">gyaantrek.com</div>
+      </div>
+      <div class="p-overlay">
+        <a href="https://gyaantrek.com" target="_blank" class="visit-btn">Visit Site <span class="visit-icon">↗</span></a>
+      </div>
+    </div>
+    <div class="p-body">
+      <div class="p-tags"><span class="p-tag tag-ecom">Content Platform</span><span class="p-tag tag-web">Web Development</span><span class="p-tag tag-seo">SEO</span></div>
+      <div class="p-title">Gyaantrek</div>
+      <div class="p-desc">Gyaantrek is a content-driven platform focused on Indian culture, history, literature, and knowledge. The website delivers well-structured blogs, artist stories, and informative content with a strong SEO foundation. Designed for performance and readability, it ensures a seamless user experience while driving organic growth.</div>
+      <div class="p-footer">
+        <a href="https://gyaantrek.com" target="_blank" class="p-link">View Live Site →</a>
+        <span class="p-year">2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-card" data-cat="app" style="animation-delay:.15s">
+    <div class="p-thumb">
+      <div class="thumb-placeholder g3">
+        <div class="thumb-grid"><img src="image/shivshaktiloader.jpeg" alt=""></div>         
+        <div class="thumb-grid"></div>
+        <div class="thumb-icon">💼</div>
+        <div class="thumb-domain">Shiv Shakti Loader</div>
+      </div>
+      <div class="p-overlay">
+        <a href="image/Shiv Shakti Loader Services.pdf" target="_blank" class="visit-btn">Visit Project <span class="visit-icon">↗</span></a>
+      </div>
+    </div>
+    <div class="p-body">
+      <div class="p-tags"><span class="p-tag tag-app">Web App</span><span class="p-tag tag-web">Web Design</span></div>
+      <div class="p-title">Shiv Shakti Loader Service</div>
+      <div class="p-desc">A web-based platform developed for booking loaders and tractors online. The system includes user authentication, booking management, admin panel, and integrated payment functionality. Designed to streamline manual processes and improve service efficiency for both customers and operators.</div>
+      <div class="p-footer">
+        <a href="image/Shiv Shakti Loader Services.pdf" target="_blank" class="p-link">View Project →</a>
+        <span class="p-year">2024</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-card" data-cat="seo" style="animation-delay:.2s">
+    <div class="p-thumb">
+      <div class="thumb-placeholder g4">
+        <div class="thumb-grid"></div>
+        <div class="thumb-icon">🌿</div>
+        <div class="thumb-domain">pureveda.co</div>
+      </div>
+      <div class="p-overlay">
+        <a href="https://pureveda.co" target="_blank" class="visit-btn" onclick="showToast('pureveda.co')">Visit Site <span class="visit-icon">↗</span></a>
+      </div>
+    </div>
+    <div class="p-body">
+      <div class="p-tags"><span class="p-tag tag-seo">SEO</span><span class="p-tag tag-ecom">E-Commerce</span></div>
+      <div class="p-title">PureVeda Wellness</div>
+      <div class="p-desc">SEO-led content strategy and WooCommerce store for an Ayurvedic wellness brand. Achieved 3.2× organic traffic growth in 6 months through keyword clusters and technical SEO overhaul.</div>
+      <div class="p-footer">
+        <a href="https://pureveda.co" target="_blank" class="p-link" onclick="showToast('pureveda.co')">View Live Site →</a>
+        <span class="p-year">2023</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-card" data-cat="app" style="animation-delay:.25s">
+    <div class="p-thumb">
+      <div class="thumb-placeholder g5">
+        <div class="thumb-grid"></div>
+        <div class="thumb-icon">📊</div>
+        <div class="thumb-domain">flowdesk.app</div>
+      </div>
+      <div class="p-overlay">
+        <a href="https://flowdesk.app" target="_blank" class="visit-btn" onclick="showToast('flowdesk.app')">Visit Site <span class="visit-icon">↗</span></a>
+      </div>
+    </div>
+    <div class="p-body">
+      <div class="p-tags"><span class="p-tag tag-app">Web App</span></div>
+      <div class="p-title">FlowDesk CRM</div>
+      <div class="p-desc">A lightweight SaaS CRM web application built for a B2B client. Features a real-time dashboard, pipeline management, client activity log, and role-based access controls.</div>
+      <div class="p-footer">
+        <a href="https://flowdesk.app" target="_blank" class="p-link" onclick="showToast('flowdesk.app')">View Live Site →</a>
+        <span class="p-year">2024</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-card" data-cat="web" style="animation-delay:.3s">
+    <div class="p-thumb">
+      <div class="thumb-placeholder g6">
+        <div class="thumb-grid"></div>
+        <div class="thumb-icon">🎓</div>
+        <div class="thumb-domain">scholarpath.edu.in</div>
+      </div>
+      <div class="p-overlay">
+        <a href="https://scholarpath.edu.in" target="_blank" class="visit-btn" onclick="showToast('scholarpath.edu.in')">Visit Site <span class="visit-icon">↗</span></a>
+      </div>
+    </div>
+    <div class="p-body">
+      <div class="p-tags"><span class="p-tag tag-web">Web Design</span><span class="p-tag tag-seo">SEO</span></div>
+      <div class="p-title">ScholarPath EdTech</div>
+      <div class="p-desc">A modern education platform website with animated course showcases, instructor profiles, integrated payment gateway, and a blog optimised for academic search queries.</div>
+      <div class="p-footer">
+        <a href="https://scholarpath.edu.in" target="_blank" class="p-link" onclick="showToast('scholarpath.edu.in')">View Live Site →</a>
+        <span class="p-year">2023</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-card" data-cat="brand" style="animation-delay:.35s">
+    <div class="p-thumb">
+      <div class="thumb-placeholder g7">
+        <div class="thumb-grid"></div>
+        <div class="thumb-icon">🍕</div>
+        <div class="thumb-domain">zestbite.in</div>
+      </div>
+      <div class="p-overlay">
+        <a href="https://zestbite.in" target="_blank" class="visit-btn" onclick="showToast('zestbite.in')">Visit Site <span class="visit-icon">↗</span></a>
+      </div>
+    </div>
+    <div class="p-body">
+      <div class="p-tags"><span class="p-tag tag-brand">Branding</span><span class="p-tag tag-web">Web Design</span></div>
+      <div class="p-title">ZestBite Food Co.</div>
+      <div class="p-desc">Full brand identity, menu design, and restaurant website for a cloud kitchen chain. Playful visual language, vibrant photography direction, and an online ordering integration.</div>
+      <div class="p-footer">
+        <a href="https://zestbite.in" target="_blank" class="p-link" onclick="showToast('zestbite.in')">View Live Site →</a>
+        <span class="p-year">2024</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-card" data-cat="ecom" style="animation-delay:.4s">
+    <div class="p-thumb">
+      <div class="thumb-placeholder g8">
+        <div class="thumb-grid"></div>
+        <div class="thumb-icon">👟</div>
+        <div class="thumb-domain">strideup.store</div>
+      </div>
+      <div class="p-overlay">
+        <a href="https://strideup.store" target="_blank" class="visit-btn" onclick="showToast('strideup.store')">Visit Site <span class="visit-icon">↗</span></a>
+      </div>
+    </div>
+    <div class="p-body">
+      <div class="p-tags"><span class="p-tag tag-ecom">E-Commerce</span><span class="p-tag tag-brand">Branding</span></div>
+      <div class="p-title">StrideUp Footwear</div>
+      <div class="p-desc">A performance footwear D2C brand store — complete with 3D product views, size guide tool, loyalty programme, and a lightning-fast checkout that cut cart abandonment by 38%.</div>
+      <div class="p-footer">
+        <a href="https://strideup.store" target="_blank" class="p-link" onclick="showToast('strideup.store')">View Live Site →</a>
+        <span class="p-year">2024</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-card" data-cat="app" style="animation-delay:.45s">
+    <div class="p-thumb">
+      <div class="thumb-placeholder g9">
+        <div class="thumb-grid"></div>
+        <div class="thumb-icon">🏥</div>
+        <div class="thumb-domain">medlink.health</div>
+      </div>
+      <div class="p-overlay">
+        <a href="https://medlink.health" target="_blank" class="visit-btn" onclick="showToast('medlink.health')">Visit Site <span class="visit-icon">↗</span></a>
+      </div>
+    </div>
+    <div class="p-body">
+      <div class="p-tags"><span class="p-tag tag-app">Web App</span><span class="p-tag tag-web">Web Design</span></div>
+      <div class="p-title">MedLink Health Portal</div>
+      <div class="p-desc">A patient-facing healthcare web application with appointment booking, doctor profiles, prescription history, and teleconsultation integration — built for a chain of diagnostic clinics.</div>
+      <div class="p-footer">
+        <a href="https://medlink.health" target="_blank" class="p-link" onclick="showToast('medlink.health')">View Live Site →</a>
+        <span class="p-year">2025</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="no-results" id="noResults">
+    <div class="nr-icon">🔍</div>
+    <h3>No projects in this category yet</h3>
+    <p>We're always adding new work — check back soon!</p>
+  </div>
+
+</div>
+
+<!-- CTA -->
+<div class="cta-section reveal">
+  <div>
+    <h2>Want Your Project <span style="color:var(--accent)">Featured Here?</span></h2>
+    <p>Let's build something worth showing off. Reach out and let's get started.</p>
+  </div>
+  <a href="contact.html" class="btn-primary">Start a Project →</a>
+</div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <div class="logo"><img src="image/Logo-with-name.png" alt="Pixora-Digital"></div>
+      <p>Where bold ideas meet sharp execution. We create digital experiences that define brands and drive growth.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Services</h5>
+      <ul>
+        <li><a href="#">Branding Strategy</a></li>
+        <li><a href="#">Web Development</a></li>
+        <li><a href="#">UI/UX Design</a></li>
+        <li><a href="#">Graphic Design</a></li>
+        <li><a href="#">Meta Ads</a></li>
+        <li><a href="#">SEO</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:info.pixoradigital@gmail.com">info.pixoradigital@gmail.com</a></li>
+        <li><a href="tel:+918400008487">+91 84000 08487</a></li>
+        <li><a href="#">Sky Mall, Morbi, Gujrat 363641</a></li>
+      </ul>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <p>© 2026 Pixora Digital. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#" class="social-link">𝕏</a>
+      <a href="#" class="social-link">in</a>
+      <a href="#" class="social-link">ig</a>
+      <a href="#" class="social-link">fb</a>
+    </div>
+  </div>
+</div>
+<script src="js/script.js"></script>
+<script>
+const currentPage = window.location.pathname.split("/").pop();
+
+document.querySelectorAll(".nav-link").forEach(link => {
+  if(link.getAttribute("href") === currentPage){
+    link.classList.add("active");
+  }
+});
+</script>
+</body>
+</html>
