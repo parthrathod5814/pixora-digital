@@ -771,7 +771,7 @@ body.loading { overflow: hidden; }
 
   /* FILTER BAR */
   .filter-bar {
-    padding:0 5% 48px;
+    padding: 50px 5% 48px;
     display:flex; align-items:center; gap:10px; flex-wrap:wrap;
     animation:fadeUp .6s ease .2s both;
   }
@@ -896,7 +896,7 @@ body.loading { overflow: hidden; }
   .tag-web { background:rgba(0,240,255,0.1); color:var(--cyan); border:1px solid rgba(0,240,255,0.2); }
   .tag-brand { background:rgba(255,77,109,0.1); color:var(--accent); border:1px solid rgba(255,77,109,0.2); }
   .tag-ecom { background:rgba(255,140,66,0.1); color:var(--accent2); border:1px solid rgba(255,140,66,0.2); }
-  .tag-seo { background:rgba(120,200,100,0.1); color:#7bc86c; border:1px solid rgba(120,200,100,0.2); }
+  .tag-digital_card { background:rgba(120,200,100,0.1); color:#7bc86c; border:1px solid rgba(120,200,100,0.2); }
   .tag-app { background:rgba(180,100,255,0.1); color:#b46dff; border:1px solid rgba(180,100,255,0.2); }
 
   .p-title {

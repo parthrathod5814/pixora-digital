@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Shree Shakti Kothi Ice Cream</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&family=Noto+Sans+Gujarati:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root {
+  --red: #C8201A;
+  --red-dark: #9E1510;
+  --red-light: #E8342D;
+  --green: #1A5C2A;
+  --green-dark: #0F3D1A;
+  --green-light: #2D8B42;
+  --cream: #FFF8F0;
+  --gold: #D4A017;
+  --gold-light: #F0C040;
+  --white: #FFFFFF;
+  --text-dark: #1A1A1A;
+  --text-mid: #3D3D3D;
+  --shadow: 0 8px 32px rgba(200,32,26,0.15);
+  --shadow-green: 0 8px 32px rgba(26,92,42,0.15);
+}
+
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ===== CUSTOM FONT ===== */
+
+@font-face {
+    font-family: 'MyFontBold';
+    src: url('font/AnekGujarati-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'MyFontRegular';
+    src: url('font/AnekGujarati-Medium.ttf') format('truetype');
+}
+
+
+
+/* ===== WAVY DIVIDER ===== */
+.wave-divider { width:100%; overflow:hidden; line-height:0; }
+.wave-divider svg { display:block; width:100%; }
+
+/* ===== HEADER ===== */
+header {
+  position: fixed; top:0; left:0; right:0; z-index:1000;
+  background: var(--red);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+}
+.header-inner {
+  max-width:1200px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 10px 20px;
+}
+.header-logo {
+  display:flex; align-items:center; gap:10px;
+}
+.header-logo img {
+  width:48px; height:48px; border-radius:50%;
+  border:2px solid var(--gold);
+  object-fit:cover;
+}
+.header-logo-text {
+  line-height:1.2;
+}
+.header-logo-text .name {
+  font-family:'Baloo 2', cursive;
+  font-size:0.95rem; font-weight:800; color:var(--white);
+}
+.header-logo-text .sub {
+  font-size:0.65rem; color:var(--gold-light); font-weight:500; font-family:MyFontRegular;
+}
+
+nav { display:flex; align-items:center; gap:6px; }
+nav a {
+  text-decoration:none; color:var(--white);
+  font-size:0.78rem; font-weight:600;
+  padding:6px 12px; border-radius:20px;
+  transition:all 0.3s;
+  white-space:nowrap;
+}
+nav a:hover { background:var(--green); color:var(--gold-light); }
+
+.hamburger {
+  display:none; background:none; border:none; cursor:pointer;
+  flex-direction:column; gap:5px; padding:5px;
+}
+.hamburger span {
+  display:block; width:24px; height:2px;
+  background:var(--white); border-radius:2px;
+  transition:all 0.3s;
+}
+
+.mobile-menu {
+  display:none; background:var(--red-dark);
+  padding:10px 20px 15px;
+  flex-direction:column; gap:5px;
+}
+.mobile-menu a {
+  text-decoration:none; color:var(--white);
+  font-size:0.9rem; font-weight:600;
+  padding:10px 15px; border-radius:10px;
+  transition:all 0.3s; display:block;
+}
+.mobile-menu a:hover { background:var(--green); }
+.mobile-menu.open { display:flex; }
+
+/* ===== HERO ===== */
+#home {
+  padding-top:70px;
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 50%, var(--green-dark) 100%);
+  min-height:100vh;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  position:relative; overflow:hidden; text-align:center;
+}
+
+#home::before {
+  content:'';
+  position:absolute; inset:0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.hero-content { position:relative; z-index:2; padding:20px; }
+
+.hero-logo {
+  width:160px; height:160px;
+  border-radius:50%;
+  border:5px solid var(--gold);
+  box-shadow: 0 0 0 10px rgba(212,160,23,0.2), 0 20px 60px rgba(0,0,0,0.4);
+  object-fit:cover;
+  margin-bottom:20px;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+
+.hero-badge {
+  display:inline-block;
+  background:var(--gold); color:var(--red-dark);
+  font-size:0.75rem; font-weight:700;
+  padding:5px 20px; border-radius:20px;
+  margin-bottom:15px; letter-spacing:1px;
+  font-family:'MyFontRegular';
+}
+
+.hero-title {
+  font-family:'MyFontBold';
+  font-size:clamp(2rem,8vw,4rem);
+  font-weight:800; color:var(--white);
+  line-height:1.1; margin-bottom:1px;
+  text-shadow:2px 4px 15px rgba(0,0,0,0.4);
+}
+.hero-title span { color:var(--gold-light); }
+
+.hero-subtitle {
+  font-family:'Baloo 2', cursive;
+  font-size:clamp(1.2rem,5vw,2rem);
+  color:var(--gold-light); font-weight:700;
+  margin-bottom:1px;
+}
+
+.hero-tagline {
+  color:rgba(255,255,255,0.85);
+  font-size:0.95rem; margin-bottom:30px;
+  letter-spacing:2px; font-weight:300;
+}
+
+.hero-btns { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+.btn {
+  padding:12px 28px; border-radius:30px;
+  font-weight:700; font-size:0.9rem;
+  text-decoration:none; border:none; cursor:pointer;
+  transition:all 0.3s; display:inline-flex; align-items:center; gap:8px;
+}
+.btn-primary { background:var(--gold); color:var(--red-dark); }
+.btn-primary:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 8px 25px rgba(212,160,23,0.4); }
+.btn-outline { background:transparent; color:var(--white); border:2px solid var(--white); }
+.btn-outline:hover { background:var(--white); color:var(--red); transform:translateY(-2px); }
+.btn-green { background:var(--green); color:var(--white); }
+.btn-green:hover { background:var(--green-light); transform:translateY(-2px); }
+
+.hero-drip {
+  position:absolute; bottom:0; left:0; right:0;
+}
+
+/* ===== CONTACT SECTION ===== */
+#contact {
+  background:var(--white);
+  padding:50px 20px;
+}
+.section-title {
+  text-align:center; margin-bottom:40px;
+}
+.section-title h2 {
+  font-family:'Baloo 2', cursive;
+  font-size:clamp(1.6rem,5vw,2.5rem);
+  font-weight:800; color:var(--red);
+  position:relative; display:inline-block;
+}
+.section-title h2::after {
+  content:'';
+  display:block; width:60%; height:4px;
+  background:linear-gradient(90deg, var(--red), var(--green));
+  border-radius:2px; margin:8px auto 0;
+}
+.section-title p { color:var(--text-mid); margin-top:8px; font-size:0.9rem; }
+
+.owner-card {
+  max-width:500px; margin:0 auto 35px;
+  background:linear-gradient(135deg, var(--red), var(--red-dark));
+  border-radius:20px; padding:25px;
+  text-align:center; color:var(--white);
+  box-shadow: var(--shadow);
+}
+.owner-avatar {
+  width:70px; height:70px; border-radius:50%;
+  background:var(--gold); margin:0 auto 12px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.8rem; border:3px solid var(--white);
+}
+.owner-name { font-family:'Baloo 2', cursive; font-size:1.4rem; font-weight:800; }
+.owner-title { color:var(--gold-light); font-size:0.85rem; margin-bottom:20px; }
+
+.contact-links { display:flex; flex-direction:column; gap:12px; }
+.contact-link {
+  display:flex; align-items:center; gap:12px;
+  background:rgba(255,255,255,0.12);
+  border-radius:12px; padding:12px 16px;
+  text-decoration:none; color:var(--white);
+  transition:all 0.3s; font-weight:500;
+}
+.contact-link:hover { background:rgba(255,255,255,0.25); transform:translateX(5px); }
+.contact-link .icon {
+  width:38px; height:38px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; flex-shrink:0;
+}
+.icon-call { background:#25D366; }
+.icon-wp { background:#25D366; }
+.icon-loc { background:var(--red-light); }
+.contact-link .info { text-align:left; }
+.contact-link .info small { font-size:0.7rem; opacity:0.7; display:block; }
+.contact-link .info span { font-size:0.9rem; }
+
+.add-contact-btn {
+  max-width:500px; margin:0 auto;
+  display:block; width:100%;
+  background:linear-gradient(135deg, var(--green), var(--green-dark));
+  color:var(--white); border:none; cursor:pointer;
+  padding:16px 30px; border-radius:15px;
+  font-size:1rem; font-weight:700;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  box-shadow:var(--shadow-green);
+  transition:all 0.3s;
+}
+.add-contact-btn:hover { transform:translateY(-3px); box-shadow:0 12px 35px rgba(26,92,42,0.35); }
+
+/* ===== SOCIAL LINKS ===== */
+#links {
+  background:var(--cream);
+  padding:50px 20px;
+}
+.social-grid {
+  display:flex; flex-wrap:wrap; gap:15px;
+  justify-content:center; max-width:600px; margin:0 auto;
+}
+.social-card {
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  padding:20px 25px; border-radius:16px;
+  text-decoration:none; color:var(--white);
+  font-weight:600; font-size:0.85rem;
+  transition:all 0.3s; min-width:100px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.15);
+}
+.social-card:hover { transform:translateY(-5px) scale(1.05); }
+.social-card i { font-size:1.8rem; }
+.sc-insta { background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+.sc-fb { background:#1877F2; }
+.sc-yt { background:#FF0000; }
+.sc-wa { background:#25D366; }
+.sc-gmap { background:#4285F4; }
+
+/* ===== ABOUT ===== */
+#about {
+  background:linear-gradient(135deg, var(--red-dark) 0%, var(--green-dark) 100%);
+  padding:60px 20px; color:var(--white);
+}
+.about-inner { max-width:900px; margin:0 auto; }
+#about .section-title h2 { color:var(--gold-light); }
+#about .section-title h2::after { background:linear-gradient(90deg,var(--gold-light),var(--white)); }
+#about .section-title p { color:rgba(255,255,255,0.7); }
+
+.about-text {
+  background:rgba(255,255,255,0.08);
+  border-radius:20px; padding:30px;
+  font-size:0.95rem; line-height:1.8;
+  color:rgba(255,255,255,0.9);
+  margin-bottom:30px;
+  border-left:4px solid var(--gold);
+}
+
+.why-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
+}
+.why-card {
+  background:rgba(255,255,255,0.08);
+  border-radius:15px; padding:20px;
+  display:flex; align-items:center; gap:12px;
+  border:1px solid rgba(255,255,255,0.1);
+  transition:all 0.3s;
+}
+.why-card:hover { background:rgba(255,255,255,0.15); transform:translateY(-3px); }
+.why-icon {
+  width:40px; height:40px; border-radius:10px;
+  background:var(--gold); color:var(--red-dark);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.1rem; flex-shrink:0;
+}
+.why-card span { font-size:0.85rem; font-weight:500; color:var(--white); }
+
+/* ===== KOTHI INFO ===== */
+.kothi-section {
+  background:var(--white);
+  padding:50px 20px;
+}
+.kothi-inner {
+  max-width:800px; margin:0 auto;
+  background:linear-gradient(135deg,#fff8f0,#ffe8e8);
+  border-radius:24px; padding:35px;
+  border:2px solid var(--red);
+  text-align:center;
+}
+.kothi-inner h3 {
+  font-family:'Baloo 2', cursive;
+  font-size:1.6rem; color:var(--red);
+  margin-bottom:15px; font-weight:800;
+}
+.kothi-inner p { color:var(--text-mid); line-height:1.8; margin-bottom:20px; }
+.kothi-points {
+  display:flex; flex-wrap:wrap; gap:12px; justify-content:center;
+}
+.kothi-point {
+  background:var(--red); color:var(--white);
+  padding:8px 18px; border-radius:20px;
+  font-size:0.85rem; font-weight:600;
+  display:flex; align-items:center; gap:6px;
+}
+
+/* ===== PRODUCTS/SERVICES ===== */
+#products {
+  background:var(--cream);
+  padding:60px 20px;
+}
+.flavors-container { max-width:1000px; margin:0 auto; }
+.flavor-category {
+  margin-bottom:35px;
+}
+.flavor-cat-title {
+  font-family: 'MyFontBold';
+  font-size:1.3rem; font-weight:800;
+  color:var(--white);
+  background:linear-gradient(135deg,var(--red),var(--red-dark));
+  padding:10px 20px; border-radius:12px;
+  margin-bottom:15px;
+  display:flex; align-items:center; gap:10px;
+}
+.flavors-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:10px;
+}
+.flavor-item {
+  background:var(--white);
+  border:2px solid transparent;
+  border-radius:12px; padding:12px 15px;
+  text-align:center; font-size:0.85rem; font-weight:500;
+  color:var(--text-dark);
+  transition:all 0.3s; cursor:default;
+  box-shadow:0 2px 8px rgba(0,0,0,0.06);
+  font-family: 'MyFontRegular';
+}
+.flavor-item:hover {
+  border-color:var(--red); color:var(--red);
+  transform:translateY(-3px); box-shadow:var(--shadow);
+}
+.flavor-item i { display:block; font-size:1.3rem; margin-bottom:5px; color:var(--gold); }
+
+.wp-order-btn {
+  max-width:400px; margin:30px auto 0;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  background:linear-gradient(135deg,#25D366,#128C7E);
+  color:var(--white); border:none; cursor:pointer;
+  padding:16px 30px; border-radius:15px;
+  font-size:1rem; font-weight:700;
+  text-decoration:none;
+  box-shadow:0 8px 25px rgba(37,211,102,0.3);
+  transition:all 0.3s;
+}
+.wp-order-btn:hover { transform:translateY(-3px); }
+
+/* ===== GALLERY ===== */
+#gallery {
+  background:linear-gradient(135deg,var(--green-dark),var(--red-dark));
+  padding:60px 20px;
+}
+#gallery .section-title h2 { color:var(--gold-light); }
+#gallery .section-title h2::after { background:linear-gradient(90deg,var(--gold-light),var(--white)); }
+
+.gallery-grid {
+  max-width:1000px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+  gap:15px;
+}
+.gallery-item {
+  border-radius:16px; overflow:hidden;
+  aspect-ratio:1; position:relative;
+  cursor:pointer; box-shadow:0 4px 20px rgba(0,0,0,0.3);
+  transition:all 0.3s;
+}
+.gallery-item:hover { transform:scale(1.03); box-shadow:0 10px 40px rgba(0,0,0,0.4); }
+.gallery-item img {
+  width:100%; height:100%; object-fit:cover;
+  display:block;
+}
+.gallery-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(200,32,26,0.8),transparent);
+  opacity:0; transition:0.3s;
+  display:flex; align-items:flex-end; padding:12px;
+  color:var(--white); font-weight:600; font-size:0.85rem;
+}
+.gallery-item:hover .gallery-overlay { opacity:1; }
+
+/* Placeholder gallery items */
+.gallery-placeholder {
+  background:linear-gradient(135deg,rgba(255,255,255,0.1),rgba(255,255,255,0.05));
+  border:2px dashed rgba(255,255,255,0.3);
+  border-radius:16px; aspect-ratio:1;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  color:rgba(255,255,255,0.5); font-size:0.75rem; gap:8px;
+}
+.gallery-placeholder i { font-size:2rem; }
+
+/* ===== FOOTER / SHARE ===== */
+#footer-share {
+  background:var(--white);
+  padding:60px 20px;
+}
+.share-inner { max-width:600px; margin:0 auto; text-align:center; }
+.qr-container {
+  background:linear-gradient(135deg,var(--red),var(--red-dark));
+  border-radius:24px; padding:30px;
+  margin-bottom:25px;
+}
+.qr-container h3 {
+  font-family:'Baloo 2', cursive;
+  color:var(--white); font-size:1.4rem; margin-bottom:5px;
+}
+.qr-container p { color:rgba(255,255,255,0.7); font-size:0.85rem; margin-bottom:20px; }
+#qrcode {
+  background:var(--white);
+  padding:15px; border-radius:16px;
+  display:inline-block;
+  box-shadow:0 8px 25px rgba(0,0,0,0.2);
+}
+#qrcode img, #qrcode canvas { border-radius:8px; }
+
+.share-actions { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:20px; }
+
+.share-btn {
+  display:flex; align-items:center; gap:8px;
+  padding:12px 22px; border-radius:12px;
+  font-weight:700; font-size:0.9rem;
+  border:none; cursor:pointer; text-decoration:none;
+  transition:all 0.3s;
+}
+.share-btn-save { background:var(--green); color:var(--white); }
+.share-btn-save:hover { background:var(--green-light); transform:translateY(-2px); }
+.share-btn-share { background:var(--red); color:var(--white); }
+.share-btn-share:hover { background:var(--red-light); transform:translateY(-2px); }
+.share-btn-wp { background:#25D366; color:var(--white); }
+.share-btn-wp:hover { transform:translateY(-2px); }
+
+.page-url-box {
+  background:var(--cream);
+  border:2px solid var(--red);
+  border-radius:12px; padding:12px 18px;
+  font-size:0.85rem; color:var(--text-mid);
+  display:flex; align-items:center; gap:10px;
+  margin-bottom:20px; word-break:break-all;
+}
+.copy-url-btn {
+  background:var(--red); color:var(--white);
+  border:none; cursor:pointer;
+  padding:6px 14px; border-radius:8px;
+  font-size:0.78rem; font-weight:600;
+  flex-shrink:0; transition:all 0.2s;
+}
+.copy-url-btn:hover { background:var(--red-light); }
+
+/* ===== BOTTOM CREDIT ===== */
+.bottom-credit {
+  background:var(--green-dark);
+  text-align:center; padding:15px 20px;
+  color:rgba(255,255,255,0.7);
+  font-size:0.8rem;
+}
+.bottom-credit a { color:var(--gold-light); text-decoration:none; font-weight:600; }
+.bottom-credit a:hover { color:var(--white); }
+
+/* ===== ICE CREAM DRIP DECORATION ===== */
+.drip-bar {
+  width:100%; height:30px;
+  background: var(--red);
+  position:relative;
+  overflow:visible;
+}
+.drip-bar::after {
+  content:'';
+  position:absolute; top:100%; left:0; right:0;
+  height:30px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 30'%3E%3Cpath d='M0,0 C50,0 50,25 100,25 C150,25 150,0 200,0 C250,0 250,25 300,25 C350,25 350,0 400,0 C450,0 450,30 500,30 C550,30 550,0 600,0 C650,0 650,25 700,25 C750,25 750,0 800,0 C850,0 850,30 900,30 C950,30 950,0 1000,0 C1050,0 1050,25 1100,25 C1150,25 1150,0 1200,0 L1200,0 L0,0 Z' fill='%23C8201A'/%3E%3C/svg%3E") no-repeat center;
+  background-size:cover;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px) {
+  nav { display:none; }
+  .hamburger { display:flex; }
+  .gallery-grid { grid-template-columns:repeat(2,1fr); }
+  .why-grid { grid-template-columns:1fr 1fr; }
+}
+@media(max-width:480px) {
+  .social-grid { gap:10px; }
+  .social-card { min-width:80px; padding:15px; }
+  .flavors-grid { grid-template-columns:repeat(2,1fr); }
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-in {
+  opacity:0; transform:translateY(20px);
+  transition:all 0.6s ease;
+}
+.fade-in.visible { opacity:1; transform:translateY(0); }
+
+/* ===== PIXORA BRANDING ===== */
+
+@media (max-width: 768px) {
+  #pixora-brand .pixora-inner {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center !important;
+  }
+  #pixora-brand .pixora-logo-block {
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  #pixora-brand .pixora-services {
+    align-items: center !important;
+    min-width: unset !important;
+  }
+  #pixora-brand .pixora-services > div:last-child {
+    justify-content: center !important;
+  }
+  #pixora-brand .pixora-cta {
+    align-items: center !important;
+  }
+}
+
+
+
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <div class="header-logo">
+      <img src="/mnt/user-data/uploads/1777913327187_image.png" alt="Shree Shakti Logo" onerror="this.style.display='none'"/>
+      <div class="header-logo-text">
+        <div class="name">Shree Shakti Kothi Ice Cream</div>
+        <div class="sub">અમરેલી નો પ્રખ્યાત આઈસ્ક્રીમ</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#home"><i class="bi bi-house-fill"></i> Home</a>
+      <a href="#links"><i class="bi bi-link-45deg"></i> Links</a>
+      <a href="#about"><i class="bi bi-person-fill"></i> About</a>
+      <a href="#products"><i class="bi bi-cup-straw"></i> Products</a>
+      <a href="#gallery"><i class="bi bi-images"></i> Gallery</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMenu()"><i class="bi bi-house-fill"></i>  Home</a>
+    <a href="#links" onclick="closeMenu()"><i class="bi bi-link-45deg"></i> Links</a>
+    <a href="#about" onclick="closeMenu()"><i class="bi bi-person-fill"></i> About Us</a>
+    <a href="#products" onclick="closeMenu()"><i class="bi bi-cup-straw"></i> Products</a>
+    <a href="#gallery" onclick="closeMenu()"><i class="bi bi-images"></i>  Gallery</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="home">
+  <div class="hero-content">
+    <img src="image/logo.jpg" alt="Shree Shakti Logo" class="hero-logo" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22160%22 height=%22160%22 viewBox=%220 0 160 160%22><circle cx=%2280%22 cy=%2280%22 r=%2280%22 fill=%22%23C8201A%22/><text x=%2280%22 y=%2295%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22white%22>🍦</text></svg>'"/>
+    <div class="hero-badge">✦ અમરેલી નો પ્રખ્યાત આઈસ્ક્રીમ ✦</div>
+    <div class="hero-title">શ્રી શક્તિ <span>કોઠી</span></div>
+    <div class="hero-subtitle">Ice Cream</div>
+    <div class="hero-tagline">Fresh &nbsp;•&nbsp; Natural &nbsp;•&nbsp; Handcrafted &nbsp;•&nbsp; Made with Love</div>
+    <div class="hero-btns">
+      <a href="https://drive.google.com/file/d/1ZF5UBwrnllb38Ngl9vtAfkiv5kHECuNX/view?usp=drive_link" class="btn btn-primary" target="_blank"><i class="fas fa-ice-cream"></i> View Menu</a>
+      <a href="https://wa.me/919512852167?text=Hi!%20I%20want%20to%20order%20Ice%20Cream" class="btn btn-green" target="_blank"><i class="fab fa-whatsapp"></i> Order Now</a>
+      <a href="#contact" class="btn btn-outline"><i class="fas fa-phone"></i> Contact Us</a>
+    </div>
+  </div>
+  <div class="hero-drip">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,40 C120,80 240,0 360,40 C480,80 600,0 720,40 C840,80 960,0 1080,40 C1200,80 1320,0 1440,40 L1440,80 L0,80 Z" fill="#FFFFFF"/>
+    </svg>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" style="padding:60px 20px; background:#fff;">
+  <div class="section-title fade-in">
+    <h2>Contact Us</h2>
+    <p>We'd love to hear from you!</p>
+  </div>
+  <div class="owner-card fade-in">
+    <img src="image/logo.jpg" class="owner-avatar" alt="logo">
+    <div class="owner-name">Shree Shakti Kothi Ice Cream</div>
+    <div class="owner-title">Owner &amp; Proprietor — Morbi, Gujarat</div>
+    <div class="contact-links">
+      <a href="tel:+919512852167" class="contact-link">
+        <div class="icon icon-call"><i class="fas fa-phone"></i></div>
+        <div class="info"><small>Call Us</small><span>95128 52167</span></div>
+      </a>
+      <a href="https://wa.me/919512852167?text=Hi!%20I%20want%20to%20inquire%20about%20your%20Ice%20Cream" class="contact-link" target="_blank">
+        <div class="icon icon-wp"><i class="fab fa-whatsapp"></i></div>
+        <div class="info"><small>WhatsApp</small><span>Chat with us on WhatsApp</span></div>
+      </a>
+      <a href="https://maps.app.goo.gl/miMwSFTHDVJm4MmEA" class="contact-link" target="_blank">
+        <div class="icon icon-loc"><i class="fas fa-map-marker-alt"></i></div>
+        <div class="info"><small>Location</small><span>Sunrise Plaza, Opposite To Flora 158, Ravapar-Ghunada Road, Morbi</span></div>
+      </a>
+    </div>
+  </div>
+  <button class="add-contact-btn fade-in" onclick="addToPhonebook()">
+    <i class="fas fa-user-plus"></i> Add to Phonebook
+  </button>
+</section>
+
+<!-- Wave -->
+<div style="background:#fff; line-height:0;">
+  <svg viewBox="0 0 1440 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:40px;">
+    <path d="M0,20 C180,40 360,0 540,20 C720,40 900,0 1080,20 C1260,40 1350,10 1440,20 L1440,40 L0,40 Z" fill="#FFF8F0"/>
+  </svg>
+</div>
+
+<!-- ===== SOCIAL LINKS ===== -->
+<section id="links" style="background:#fff8f0; padding:60px 20px;">
+  <div class="section-title fade-in">
+    <h2>Follow Us</h2>
+    <p>Stay connected on social media</p>
+  </div>
+  <div class="social-grid fade-in">
+    <a href="https://instagram.com/shreeshaktiicecream" class="social-card sc-insta" target="_blank">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://www.facebook.com/share/1Froik9jaW/" class="social-card sc-fb" target="_blank">
+      <i class="fab fa-facebook-f"></i> Facebook
+    </a>
+    <a href="https://wa.me/919512852167" class="social-card sc-wa" target="_blank">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+    <a href="https://g.page/r/CfaSYNNzciAJEAE/review" class="social-card sc-gmap" target="_blank">
+      <i class="fab fa-google"></i>Reviews
+    </a>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="about-inner">
+    <div class="section-title fade-in">
+      <h2>About Us</h2>
+      <p>Our story, our passion</p>
+    </div>
+    <div class="about-text fade-in">
+      <p>Welcome to <strong>Shree Shakti Kothi Ice Cream</strong>, where tradition meets taste. We specialize in authentic <strong>Kothi Ice Cream</strong> — a traditional style of natural ice cream made using fresh milk, real fruits, and premium dry fruits.</p>
+      <br/>
+      <p>Our ice creams are made <strong>without artificial flavors or preservatives</strong>, giving you a pure and rich taste in every bite. From classic flavors to unique seasonal creations, we bring you the true essence of natural ice cream.</p>
+      <br/>
+      <p>Located in Amreli, Gujarat, we are proud to serve <strong>happiness in every scoop</strong> to our beloved customers for years. 🍦</p>
+    </div>
+    <div class="why-grid fade-in">
+      <div class="why-card"><div class="why-icon">🌿</div><span>100% Natural Ingredients</span></div>
+      <div class="why-card"><div class="why-icon">🚫</div><span>No Artificial Colors or Chemicals</span></div>
+      <div class="why-card"><div class="why-icon">🥛</div><span>Fresh Milk & Real Fruits</span></div>
+      <div class="why-card"><div class="why-icon">🏺</div><span>Traditional Kothi Style Preparation</span></div>
+      <div class="why-card"><div class="why-icon">🍫</div><span>Rich & Creamy Taste</span></div>
+      <div class="why-card"><div class="why-icon">🌈</div><span>Wide Variety of Flavors</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== KOTHI INFO ===== -->
+<div class="kothi-section">
+  <div class="kothi-inner fade-in">
+    <h3>🏺 What is Kothi Ice Cream?</h3>
+    <p>Kothi Ice Cream is a <strong>traditional Indian method</strong> of preparing ice cream using a special container (Kothi), slow churning, and natural cooling techniques. This age-old process sets our ice cream apart from machine-made varieties.</p>
+    <div class="kothi-points">
+      <span class="kothi-point"><i class="fas fa-check"></i> Better Texture</span>
+      <span class="kothi-point"><i class="fas fa-check"></i> Rich Natural Taste</span>
+      <span class="kothi-point"><i class="fas fa-check"></i> Authentic Old-Style Flavor</span>
+      <span class="kothi-point"><i class="fas fa-check"></i> Pure & Chemical Free</span>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products">
+  <div class="section-title fade-in">
+    <h2>🍦 Our Flavors & Menu</h2>
+    <p>Pick your favorite from our delicious range</p>
+  </div>
+  <div class="flavors-container">
+
+    <div class="flavor-category fade-in">
+      <div class="flavor-cat-title">🍨 આઈસ્ક્રીમ ફ્લેવર — Ice Cream Flavors</div>
+      <div class="flavors-grid">
+        <div class="flavor-item">સ્પે. શક્તિ</div>
+        <div class="flavor-item">કાજુ અંજીર</div>
+        <div class="flavor-item">અફઘાન મેવા</div>
+        <div class="flavor-item">ડ્રાયફ્રૂટ રબડી</div>
+        <div class="flavor-item">કેસર પીસ્તા</div>
+        <div class="flavor-item">ઓરીઓ</div>
+        <div class="flavor-item">રોસ્ટેડ આલમંડ</div>
+        <div class="flavor-item">કાજુ ગુલકંદ</div>
+        <div class="flavor-item">નવરત્ન</div>
+        <div class="flavor-item">અમેરિકન નટ્સ</div>
+        <div class="flavor-item">કાજુ બદામ</div>
+        <div class="flavor-item">કાજુ દ્રાક્ષ</div>
+        <div class="flavor-item">ચોકલેટ</div>
+        <div class="flavor-item">ગોટાળો</div>
+        <div class="flavor-item">પાનપસંદ</div>
+        <div class="flavor-item">માવા બદામ</div>
+        <div class="flavor-item">માવા મલાઈ</div>
+        <div class="flavor-item">કાજુ કતરી</div>
+      </div>
+    </div>
+
+    <div class="flavor-category fade-in">
+      <div class="flavor-cat-title" style="background:linear-gradient(135deg,var(--green),var(--green-dark));">🍓 ફ્રૂટ-ફ્લેવર આઈસ્ક્રીમ — Fruit Flavors</div>
+      <div class="flavors-grid">
+        <div class="flavor-item">સીતાફળ</div>
+        <div class="flavor-item">જાંબૂડા</div>
+        <div class="flavor-item">કોકોનટ</div>
+        <div class="flavor-item">પાઈના સ્ટ્રોબેરી</div>
+        <div class="flavor-item">જામફળ</div>
+        <div class="flavor-item">ચીકૂ</div>
+        <div class="flavor-item">મેંગો</div>
+      </div>
+    </div>
+
+    <div class="flavor-category fade-in">
+      <div class="flavor-cat-title" style="background:linear-gradient(135deg,#8B4513,#5D2E0C);">🍭 કેન્ડી — Kendi (Kulfi Style)</div>
+      <div class="flavors-grid">
+        <div class="flavor-item">માવા મલાઈ</div>
+        <div class="flavor-item">જાંબૂ</div>
+        <div class="flavor-item">કાજુ અંજીર</div>
+        <div class="flavor-item">માવા ગુલકંદ</div>
+        <div class="flavor-item">ઓરીઓ</div>
+        <div class="flavor-item">ચોકલેટ</div>
+      </div>
+    </div>
+
+    <div class="flavor-category fade-in">
+      <div class="flavor-cat-title" style="background:linear-gradient(135deg,#D4A017,#A07010);">🍮 શ્રીખંડ — Shrikhand</div>
+      <div class="flavors-grid">
+        <div class="flavor-item">પ્લેન શ્રીખંડ</div>
+        <div class="flavor-item">ડ્રાયફ્રૂટ શ્રીખંડ</div>
+        <div class="flavor-item">રાજભોગ શ્રીખંડ</div>
+        <div class="flavor-item">કેસર પીસ્તા શ્રીખંડ</div>
+      </div>
+    </div>
+
+    <a href="https://wa.me/919512852167?text=Hi!%20I%20want%20to%20place%20an%20order%20for%20Ice%20Cream%20🍦" class="wp-order-btn fade-in" target="_blank">
+      <i class="fab fa-whatsapp" style="font-size:1.3rem;"></i>Order on WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery">
+  <div class="section-title fade-in">
+    <h2>Gallery</h2>
+  </div>
+  <div class="gallery-grid">
+    <!-- Real uploaded images -->
+    <div class="gallery-item fade-in">
+      <img src="image/01.jpeg" alt="photo1"/>
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="image/02.jpeg" alt="photo2"/>
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="image/03.jpeg" alt="photo3"/>
+      <div class="gallery-overlay"></div>
+    </div>
+    <div class="gallery-item fade-in">
+      <img src="image/menu.jpeg" alt="Menu"/>
+      <div class="gallery-overlay"></div>
+    </div>
+    <!-- Placeholder images -->
+    
+</section>
+
+<!-- ===== SHARE / QR ===== -->
+<section id="footer-share">
+  <div class="share-inner">
+    <div class="section-title fade-in">
+      <h2>📲 Share Our Page</h2>
+      <p>Share or scan to visit our digital card</p>
+    </div>
+    <div class="page-url-box fade-in">
+      <i class="fas fa-link" style="color:var(--red);flex-shrink:0;"></i>
+      <span id="pageUrl" style="flex:1;">https://pixoradigital.in/digital_cards/shreeshakti/</span>
+      <button class="copy-url-btn" onclick="copyUrl()">Copy</button>
+    </div>
+    <div class="qr-container fade-in">
+      <h3>🔍 Scan QR Code</h3>
+      <p>Scan with your camera to open this page</p>
+      <div id="qrcode"></div>
+      <div class="share-actions">
+        <button class="share-btn share-btn-save" onclick="saveQR()">
+          <i class="fas fa-download"></i> Save QR Code
+        </button>
+        <button class="share-btn share-btn-share" onclick="sharePage()">
+          <i class="fas fa-share-alt"></i> Share Page
+        </button>
+        <a href="https://wa.me/?text=Check%20out%20Shree%20Shakti%20Kothi%20Ice%20Cream%20🍦%20-%20shreeshakti-icecream.pixoradigital.com" class="share-btn share-btn-wp" target="_blank">
+          <i class="fab fa-whatsapp"></i> Share on WA
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== PIXORA BRANDING SECTION ===== -->
+<section id="pixora-brand" style="
+  background: linear-gradient(135deg, #0D0D1A 0%, #1A1030 50%, #0D0D1A 100%);
+  padding: 50px 20px;
+  position: relative;
+  overflow: hidden;
+">
+
+  <!-- Glowing background orbs -->
+  <div style="
+    position:absolute; top:-60px; left:-60px;
+    width:250px; height:250px; border-radius:50%;
+    background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%);
+    pointer-events:none;
+  "></div>
+  <div style="
+    position:absolute; bottom:-60px; right:-60px;
+    width:300px; height:300px; border-radius:50%;
+    background: radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%);
+    pointer-events:none;
+  "></div>
+
+  <div class="pixora-inner" style="
+    max-width: 960px; margin: 0 auto;
+    display: flex; flex-wrap: wrap;
+    align-items: center; justify-content: space-between;
+    gap: 30px; position: relative; z-index: 2;
+  ">
+
+    <!-- LEFT: Pixora Branding -->
+    <div class="pixora-logo-block" style="display:flex; align-items:center; gap:18px; flex-shrink:0;">
+      <div>
+        <img src="image/Logo-with-name.png" alt="Pixora Digital Logo" style="width:150px; margin-top:4px;"/>
+        <div style="
+          font-size: 0.72rem; color: rgba(255,255,255,0.45);
+          font-weight: 500; letter-spacing: 0.5px;
+        ">Creative Digital Agency</div>
+      </div>
+    </div>
+
+    <!-- CENTER: Services Tags -->
+    <div class="pixora-services" style="
+      flex:1; min-width:250px;
+      display:flex; flex-direction:column; gap:10px;
+    ">
+      <div style="
+        font-size: 0.7rem; color: rgba(255,255,255,0.4);
+        text-transform: uppercase; letter-spacing: 2px; font-weight: 600;
+      ">🚀 Our Services</div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span style="
+          background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.35);
+          color: #d8b4fe; padding: 5px 13px; border-radius: 20px;
+          font-size: 0.75rem; font-weight: 600; white-space:nowrap;
+        ">💳 NFC Digital Card</span>
+        <span style="
+          background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.35);
+          color: #f9a8d4; padding: 5px 13px; border-radius: 20px;
+          font-size: 0.75rem; font-weight: 600; white-space:nowrap;
+        ">🌐 Website Development</span>
+        <span style="
+          background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.35);
+          color: #d8b4fe; padding: 5px 13px; border-radius: 20px;
+          font-size: 0.75rem; font-weight: 600; white-space:nowrap;
+        ">📱 Software Development</span>
+        <span style="
+          background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.35);
+          color: #f9a8d4; padding: 5px 13px; border-radius: 20px;
+          font-size: 0.75rem; font-weight: 600; white-space:nowrap;
+        ">📣 Social Media Handling</span>
+        <span style="
+          background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.35);
+          color: #d8b4fe; padding: 5px 13px; border-radius: 20px;
+          font-size: 0.75rem; font-weight: 600; white-space:nowrap;
+        ">🎯 Meta & Google Ads</span>
+        <span style="
+          background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.35);
+          color: #f9a8d4; padding: 5px 13px; border-radius: 20px;
+          font-size: 0.75rem; font-weight: 600; white-space:nowrap;
+        ">🎨 Branding & Design</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: CTA Button -->
+    <div class="pixora-cta" style="display:flex; flex-direction:column; align-items:center; gap:10px; flex-shrink:0;">
+      <div style="
+        font-size:0.72rem; color:rgba(255,255,255,0.4);
+        text-align:center; letter-spacing:0.5px;
+      ">Developed by</div>
+      <a href="https://pixoradigital.in" target="_blank" style="
+        display: inline-flex; align-items: center; gap: 9px;
+        background: linear-gradient(135deg, #a855f7, #ec4899);
+        color: white; text-decoration: none;
+        padding: 13px 26px; border-radius: 30px;
+        font-size: 0.88rem; font-weight: 700;
+        box-shadow: 0 6px 25px rgba(168,85,247,0.45);
+        transition: all 0.3s;
+        white-space: nowrap;
+        font-family: 'Poppins', sans-serif;
+      "
+      onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 35px rgba(168,85,247,0.6)'"
+      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 25px rgba(168,85,247,0.45)'"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.5" fill="none"/>
+          <path d="M8 12h8M14 9l3 3-3 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Visit Pixora Digital
+      </a>
+      <div style="
+        font-size:0.68rem; color:rgba(255,255,255,0.3);
+        text-align:center;
+      ">pixoradigital.in</div>
+    </div>
+
+  </div>
+
+  <!-- Bottom divider line -->
+  <div style="
+    max-width:960px; margin:30px auto 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 18px;
+    display:flex; align-items:center; justify-content:center;
+    gap:8px;
+  ">
+    <div style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#ec4899);"></div>
+    <span style="font-size:0.72rem;color:rgba(255,255,255,0.25);letter-spacing:1px;text-align:center;">
+      POWERING DIGITAL GROWTH FOR BUSINESSES ACROSS GUJARAT
+    </span>
+    <div style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#a855f7);"></div>
+  </div>
+
+</section>
+<!-- ===== END PIXORA BRANDING SECTION ===== -->
+
+
+<!-- ===== BOTTOM CREDIT ===== -->
+<!-- <div class="bottom-credit">
+  © Developed by <a href="https://pixoradigital.com" target="_blank">Pixora Digital</a> &nbsp;|&nbsp; All Rights Reserved 2026
+</div> -->
+
+<script>
+// ===== MOBILE MENU =====
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+
+// ===== QR CODE =====
+window.addEventListener('load', function() {
+  var url = window.location.href || 'https://pixoradigital.in/digital_cards/shreeshakti/shreeshakti_icecream.html';
+  new QRCode(document.getElementById('qrcode'), {
+    text: url,
+    width: 180,
+    height: 180,
+    colorDark: '#C8201A',
+    colorLight: '#FFFFFF',
+    correctLevel: QRCode.CorrectLevel.H
+  });
+});
+
+// ===== SAVE QR =====
+function saveQR() {
+  setTimeout(() => {
+    var canvas = document.querySelector('#qrcode canvas');
+    if (canvas) {
+      var link = document.createElement('a');
+      link.download = 'ShreeShakti-QRCode.png';
+      link.href = canvas.toDataURL();
+      link.click();
+    } else {
+      alert('QR Code saving... Please try again in a moment.');
+    }
+  }, 500);
+}
+
+// ===== SHARE PAGE =====
+function sharePage() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Shree Shakti Kothi Ice Cream',
+      text: 'Check out the best Kothi Ice Cream in Morbi! 🍦',
+      url: window.location.href
+    });
+  } else {
+    copyUrl();
+    alert('Link copied! Share it anywhere.');
+  }
+}
+
+// ===== COPY URL =====
+function copyUrl() {
+  var url = window.location.href || 'https://pixoradigital.in/digital_cards/shreeshakti/shreeshakti_icecream.html';
+  navigator.clipboard.writeText(url).then(() => {
+    var btn = document.querySelector('.copy-url-btn');
+    btn.textContent = '✓ Copied!';
+    btn.style.background = 'var(--green)';
+    setTimeout(() => { btn.textContent = 'Copy'; btn.style.background = 'var(--red)'; }, 2000);
+  });
+}
+
+// ===== ADD TO PHONEBOOK =====
+function addToPhonebook() {
+  var vcard = `BEGIN:VCARD
+VERSION:3.0
+FN:Shree Shakti Kothi Ice Cream
+ORG:Shree Shakti Kothi Ice Cream
+TEL;TYPE=CELL:+919512852167
+ADR;TYPE=WORK:;;Sunrise Plaza, Opposite To Flora 158, Ravapar-Ghunada Road;Morbi;Gujarat;;India
+URL:https://shreeshakti-icecream.pixoradigital.com
+NOTE:Amreli no Prakhyat Kothi Ice Cream | Natural & Handcrafted
+END:VCARD`;
+  var blob = new Blob([vcard], { type: 'text/vcard' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'ShreeShakti-IceCream.vcf';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+// ===== SCROLL ANIMATIONS =====
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-in').forEach(function(el) {
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
