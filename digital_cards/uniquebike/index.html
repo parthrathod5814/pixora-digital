@@ -825,7 +825,7 @@ nav a:hover {
   align-items:center;
   justify-content:center;
   overflow:hidden;
-  background:#ececec;
+  background:#ededed;
   border-radius:16px;
 }
 
@@ -994,7 +994,33 @@ nav a:hover {
     grid-template-columns:1fr !important;
   }
 
+
+   .slide{
+    height:500px;
+    width: 100px;
+    padding:0px;
+  }
+
+  .slide img{
+   
+    width: 120%;
+    height:100%;
+
+    object-fit:contain;
+
+    /* REMOVE EXTRA ZOOM */
+    transform:scale(1);
+
+    /* KEEP FULL IMAGE VISIBLE */
+    object-position:center;
+  }
+
 }
+
+
+ 
+
+
 
 @media(max-width:768px){
 
