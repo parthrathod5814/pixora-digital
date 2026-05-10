@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>J.P. Jewellers — Since 1985</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600&family=Cinzel:wght@400;500;600;700;900&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+:root {
+  --maroon: #6B1F3A;
+  --maroon-dark: #4A1228;
+  --maroon-deep: #2D0A1A;
+  --gold: #C9973A;
+  --gold-light: #E8C46A;
+  --gold-bright: #F5D485;
+  --gold-pale: #FDF0C4;
+  --teal: #3D8C7A;
+  --teal-light: #5AAD99;
+  --teal-dark: #1E5E50;
+  --cream: #FAF6EE;
+  --cream-dark: #F0E8D5;
+  --white: #FFFFFF;
+  --text-dark: #2A1810;
+  --text-mid: #5C3D2E;
+  --shadow-gold: 0 8px 40px rgba(201,151,58,0.25);
+  --shadow-maroon: 0 8px 40px rgba(107,31,58,0.2);
+  --font-display: 'Cinzel', serif;
+  --font-body: 'Cormorant Garamond', serif;
+  --font-ui: 'Nunito', sans-serif;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background: var(--cream-dark); }
+::-webkit-scrollbar-thumb { background: var(--gold); border-radius:2px; }
+
+/* ===== FLOATING JEWELRY SVG BG ===== */
+.jewelry-bg {
+  position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden;
+}
+.jewelry-bg svg {
+  position:absolute; opacity:0.04; fill:var(--maroon);
+}
+.jbg-1 { top:5%; left:2%; width:120px; animation: float-slow 8s ease-in-out infinite; }
+.jbg-2 { top:20%; right:3%; width:90px; animation: float-slow 10s ease-in-out infinite 2s; }
+.jbg-3 { top:50%; left:5%; width:70px; animation: float-slow 12s ease-in-out infinite 4s; }
+.jbg-4 { bottom:20%; right:2%; width:110px; animation: float-slow 9s ease-in-out infinite 1s; }
+.jbg-5 { bottom:5%; left:40%; width:80px; animation: float-slow 11s ease-in-out infinite 3s; }
+@keyframes float-slow {
+  0%,100%{transform:translateY(0) rotate(0deg);}
+  33%{transform:translateY(-15px) rotate(5deg);}
+  66%{transform:translateY(8px) rotate(-3deg);}
+}
+
+/* ===== HEADER ===== */
+header {
+  position:fixed; top:0; left:0; right:0; z-index:1000;
+  background:rgba(250,246,238,0.96);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(201,151,58,0.25);
+  box-shadow:0 2px 30px rgba(201,151,58,0.1);
+}
+.header-inner {
+  max-width:1200px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:10px 20px;
+}
+.header-logo {
+  display:flex; align-items:center; gap:12px;
+}
+.header-logo img {
+  width:46px; height:46px; border-radius:50%;
+  object-fit:contain; border:2px solid var(--gold);
+  box-shadow:0 0 12px rgba(201,151,58,0.3);
+}
+.header-logo-text .name {
+  font-family:var(--font-display); font-size:1rem; font-weight:700;
+  color:var(--maroon); letter-spacing:2px;
+}
+.header-logo-text .sub {
+  font-size:0.62rem; color:var(--gold); letter-spacing:2px;
+  font-family:var(--font-ui); text-transform:uppercase;
+}
+
+nav a {
+  text-decoration:none; color:var(--text-mid);
+  font-size:0.78rem; font-weight:600; font-family:var(--font-display);
+  padding:7px 14px; border-radius:4px; transition:all 0.3s;
+  letter-spacing:1px; text-transform:uppercase;
+}
+nav a:hover { color:var(--maroon); background:rgba(201,151,58,0.08); }
+
+.hamburger {
+  display:none; background:none; border:none; cursor:pointer;
+  flex-direction:column; gap:5px; padding:5px;
+}
+.hamburger span { display:block; width:22px; height:2px; background:var(--maroon); border-radius:2px; transition:all 0.3s; }
+.mobile-menu {
+  display:none; background:rgba(250,246,238,0.98);
+  border-top:1px solid rgba(201,151,58,0.2);
+  padding:10px 20px 15px; flex-direction:column; gap:4px;
+}
+.mobile-menu a {
+  text-decoration:none; color:var(--text-mid); font-size:0.9rem;
+  font-weight:600; font-family:var(--font-display); letter-spacing:1px;
+  padding:12px 15px; border-radius:8px; display:block; text-transform:uppercase;
+  transition:all 0.3s;
+}
+.mobile-menu a:hover { color:var(--maroon); background:rgba(201,151,58,0.08); }
+.mobile-menu.open { display:flex; }
+
+/* ===== HERO ===== */
+#home {
+  min-height: 100vh;
+  padding-top: 0;
+  background: linear-gradient(160deg, var(--maroon-deep) 0%, var(--maroon-dark) 40%, var(--maroon) 70%, #8B2A4A 100%);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  position: relative; overflow: hidden; text-align: center;
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 90px 20px 40px;
+  max-width: 700px;
+}
+
+/* Geometric diamond pattern background */
+#home::before {
+  content:'';
+  position:absolute; inset:0;
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(201,151,58,0.06)' stroke-width='1'%3E%3Cpolygon points='40,5 75,40 40,75 5,40'/%3E%3C/g%3E%3C/svg%3E");
+  background-size:80px 80px;
+}
+
+/* Gold shimmer overlay */
+#home::after {
+  content:'';
+  position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(201,151,58,0.12) 0%, transparent 70%);
+}
+
+/* Floating gem orbs */
+.hero-gem {
+  position:absolute; border-radius:50%;
+  animation:gem-float 6s ease-in-out infinite;
+}
+.gem1 { width:200px; height:200px; top:-60px; left:-60px; background:radial-gradient(circle at 40% 40%, rgba(201,151,58,0.12), rgba(61,140,122,0.08), transparent 70%); animation-delay:0s; }
+.gem2 { width:300px; height:300px; bottom:-80px; right:-80px; background:radial-gradient(circle at 60% 60%, rgba(201,151,58,0.1), rgba(107,31,58,0.08), transparent 70%); animation-delay:3s; }
+.gem3 { width:150px; height:150px; top:30%; right:5%; background:radial-gradient(circle, rgba(61,140,122,0.15), transparent 70%); animation-delay:1.5s; }
+@keyframes gem-float {
+  0%,100%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-20px) scale(1.05);}
+}
+
+/* hero-content handled above */
+
+/* Animated gold ring decoration */
+.hero-ring-deco {
+  position:relative; width:160px; height:160px; margin:0 auto 25px;
+}
+.hero-logo {
+  width:130px; height:130px; border-radius:50%;
+  object-fit:contain; background:white; padding:10px;
+  border:3px solid var(--gold);
+  box-shadow:0 0 0 8px rgba(201,151,58,0.15), 0 0 0 16px rgba(201,151,58,0.07), 0 20px 60px rgba(0,0,0,0.4);
+  position:absolute; top:50%; left:50%; transform:translate(-50%,-50%);
+  animation:logo-pulse 4s ease-in-out infinite;
+}
+@keyframes logo-pulse {
+  0%,100%{box-shadow:0 0 0 8px rgba(201,151,58,0.15),0 0 0 16px rgba(201,151,58,0.07),0 20px 60px rgba(0,0,0,0.4);}
+  50%{box-shadow:0 0 0 12px rgba(201,151,58,0.2),0 0 0 22px rgba(201,151,58,0.1),0 20px 80px rgba(201,151,58,0.3);}
+}
+.ring-orbit {
+  position:absolute; inset:0; border:1px dashed rgba(201,151,58,0.4);
+  border-radius:50%; animation:orbit-spin 12s linear infinite;
+}
+.ring-orbit::before {
+  content:'💎'; position:absolute; top:-8px; left:50%; transform:translateX(-50%);
+  font-size:14px;
+}
+@keyframes orbit-spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+
+.hero-since {
+  font-family:var(--font-ui); font-size:0.68rem; color:var(--gold-light);
+  letter-spacing:4px; text-transform:uppercase; margin-bottom:12px;
+  display:flex; align-items:center; gap:10px; justify-content:center;
+}
+.hero-since::before,.hero-since::after { content:''; width:30px; height:1px; background:var(--gold); }
+
+.hero-title {
+  font-family:var(--font-display);
+  font-size:clamp(2.2rem, 8vw, 5rem);
+  font-weight:700; color:var(--white); line-height:1;
+  letter-spacing:4px; margin-bottom:8px;
+  text-shadow:0 0 60px rgba(201,151,58,0.4);
+}
+.hero-title span { color:var(--gold-light); }
+
+.hero-subtitle {
+  font-family:var(--font-body); font-size:clamp(1rem,3vw,1.5rem);
+  color:rgba(255,255,255,0.7); font-style:italic; font-weight:300;
+  margin-bottom:20px; letter-spacing:2px;
+}
+
+.hero-tagline {
+  font-family:var(--font-body); font-size:1.05rem; font-style:italic;
+  color:var(--gold-light); margin-bottom:35px; line-height:1.6;
+}
+
+.hero-gems-row {
+  display:flex; justify-content:center; gap:30px; margin-bottom:30px;
+  font-size:1.5rem;
+}
+.hero-gems-row span { animation:sparkle 2s ease-in-out infinite; }
+.hero-gems-row span:nth-child(2){animation-delay:0.3s;}
+.hero-gems-row span:nth-child(3){animation-delay:0.6s;}
+.hero-gems-row span:nth-child(4){animation-delay:0.9s;}
+.hero-gems-row span:nth-child(5){animation-delay:1.2s;}
+@keyframes sparkle {
+  0%,100%{transform:scale(1);opacity:0.7;}
+  50%{transform:scale(1.3);opacity:1;}
+}
+
+.hero-btns { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+
+/* Buttons */
+.btn {
+  padding:13px 28px; border-radius:4px; font-weight:600; font-size:0.85rem;
+  text-decoration:none; border:none; cursor:pointer; transition:all 0.3s;
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:var(--font-display); letter-spacing:2px; text-transform:uppercase;
+}
+.btn-gold {
+  background:linear-gradient(135deg, var(--gold), var(--gold-light), var(--gold));
+  color:var(--maroon-dark);
+  box-shadow:0 6px 25px rgba(201,151,58,0.4);
+  background-size:200% 200%; background-position:left;
+}
+.btn-gold:hover { background-position:right; transform:translateY(-2px); box-shadow:0 10px 35px rgba(201,151,58,0.6); }
+.btn-outline-gold {
+  background:transparent; color:var(--gold-light);
+  border:1px solid rgba(201,151,58,0.6);
+}
+.btn-outline-gold:hover { background:rgba(201,151,58,0.1); border-color:var(--gold-light); transform:translateY(-2px); }
+.btn-maroon {
+  background:var(--maroon); color:var(--gold-light);
+  border:1px solid var(--gold);
+  box-shadow:var(--shadow-maroon);
+}
+.btn-maroon:hover { background:var(--maroon-dark); transform:translateY(-2px); }
+.btn-teal {
+  background:var(--teal); color:var(--white);
+  box-shadow:0 6px 20px rgba(61,140,122,0.3);
+}
+.btn-teal:hover { background:var(--teal-light); transform:translateY(-2px); }
+
+/* Gold divider ornament */
+.ornament {
+  display:flex; align-items:center; gap:12px;
+  justify-content:center; margin:30px 0;
+}
+.ornament::before,.ornament::after {
+  content:''; flex:1; height:1px;
+  background:linear-gradient(90deg, transparent, var(--gold), transparent);
+  max-width:120px;
+}
+.ornament-gem { font-size:1rem; color:var(--gold); }
+
+/* ===== SECTION BASE ===== */
+.section { padding:70px 20px; position:relative; z-index:1; }
+.section-inner { max-width:1100px; margin:0 auto; }
+
+.section-header { text-align:center; margin-bottom:50px; }
+.section-label {
+  font-family:var(--font-ui); font-size:0.68rem; font-weight:700;
+  color:var(--gold); letter-spacing:4px; text-transform:uppercase;
+  margin-bottom:10px;
+}
+.section-title {
+  font-family:var(--font-display); font-size:clamp(1.8rem,5vw,3rem);
+  font-weight:700; color:var(--maroon); margin-bottom:10px; line-height:1.1;
+}
+.section-title span { color:var(--gold); }
+.section-desc { color:var(--text-mid); font-size:1.05rem; font-style:italic; line-height:1.7; }
+
+/* ===== CONTACT ===== */
+#contact { background:var(--cream); }
+
+.owner-hero {
+  background:linear-gradient(135deg, var(--maroon-dark), var(--maroon));
+  border-radius:20px; padding:35px; margin-bottom:30px;
+  text-align:center; position:relative; overflow:hidden;
+  border:1px solid rgba(201,151,58,0.3);
+  box-shadow:var(--shadow-gold);
+}
+.owner-hero::before {
+  content:'';
+  position:absolute; inset:0;
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='rgba(201,151,58,0.06)' stroke-width='1'%3E%3Cpolygon points='30,5 55,30 30,55 5,30'/%3E%3C/g%3E%3C/svg%3E");
+}
+.owner-avatar {
+  width:80px; height:80px; border-radius:50%;
+  background:linear-gradient(135deg, var(--gold), var(--gold-light));
+  margin:0 auto 15px; display:flex; align-items:center; justify-content:center;
+  font-size:2rem; border:3px solid rgba(255,255,255,0.3);
+  box-shadow:0 0 25px rgba(201,151,58,0.4); position:relative;
+}
+.owner-name {
+  font-family:var(--font-display); font-size:1.5rem; font-weight:700;
+  color:var(--white); letter-spacing:2px; margin-bottom:4px;
+}
+.owner-role {
+  font-family:var(--font-body); font-style:italic; color:var(--gold-light);
+  font-size:0.95rem; margin-bottom:20px;
+}
+
+.contact-links { display:flex; flex-direction:column; gap:12px; max-width:420px; margin:0 auto; }
+.contact-link {
+  display:flex; align-items:center; gap:14px;
+  background:rgba(255,255,255,0.08);
+  border:1px solid rgba(201,151,58,0.2);
+  border-radius:12px; padding:13px 18px;
+  text-decoration:none; color:var(--white); transition:all 0.3s;
+}
+.contact-link:hover { background:rgba(201,151,58,0.15); border-color:var(--gold); transform:translateX(5px); }
+.cl-icon {
+  width:40px; height:40px; border-radius:10px; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; font-size:1rem;
+}
+.cl-call { background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:var(--maroon-dark); }
+.cl-wp { background:#25D366; color:#fff; }
+.cl-loc { background:linear-gradient(135deg,var(--teal),var(--teal-light)); color:#fff; }
+.cl-info small { font-size:0.65rem; color:rgba(255,255,255,0.5); display:block; text-transform:uppercase; letter-spacing:1px; }
+.cl-info span { font-size:0.92rem; font-weight:600; font-family:var(--font-ui); }
+
+.add-contact-btn {
+  max-width:420px; margin:20px auto 0;
+  display:flex; align-items:center; justify-content:center; gap:10px;
+  width:100%; background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--maroon-dark); border:none; cursor:pointer;
+  padding:16px 30px; border-radius:12px; font-size:0.9rem; font-weight:800;
+  font-family:var(--font-display); letter-spacing:2px; text-transform:uppercase;
+  box-shadow:var(--shadow-gold); transition:all 0.3s;
+}
+.add-contact-btn:hover { transform:translateY(-2px); box-shadow:0 12px 40px rgba(201,151,58,0.5); }
+
+/* ===== SOCIAL LINKS ===== */
+#links { background:var(--maroon-deep); }
+#links .section-title { color:var(--gold-light); }
+
+.social-grid {
+  display:flex; flex-wrap:wrap; gap:15px; justify-content:center; margin-top:30px;
+}
+.social-card {
+  display:flex; align-items:center; gap:10px;
+  padding:14px 22px; border-radius:10px;
+  text-decoration:none; color:var(--white); font-weight:700;
+  font-size:0.82rem; font-family:var(--font-display); letter-spacing:1px;
+  text-transform:uppercase; transition:all 0.3s;
+  background:rgba(255,255,255,0.05); border:1px solid rgba(201,151,58,0.2);
+}
+.social-card:hover { transform:translateY(-4px); border-color:var(--gold); }
+.social-card i { font-size:1.2rem; }
+.sc-ig { }
+.sc-ig:hover { box-shadow:0 0 20px rgba(225,48,108,0.3); border-color:#e1306c; }
+.sc-fb:hover { box-shadow:0 0 20px rgba(24,119,242,0.3); border-color:#1877F2; }
+.sc-yt:hover { box-shadow:0 0 20px rgba(255,0,0,0.3); border-color:#FF0000; }
+.sc-wa:hover { box-shadow:0 0 20px rgba(37,211,102,0.3); border-color:#25D366; }
+.sc-gm:hover { box-shadow:0 0 20px rgba(66,133,244,0.3); border-color:#4285F4; }
+
+/* ===== ABOUT ===== */
+#about { background:linear-gradient(160deg, var(--cream) 0%, var(--cream-dark) 100%); }
+
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:start; margin-top:40px; }
+@media(max-width:768px){ .about-grid{grid-template-columns:1fr;gap:30px;} }
+
+.about-text { font-size:1.05rem; color:var(--text-mid); line-height:1.9; font-style:italic; }
+.about-text strong { color:var(--maroon); font-style:normal; }
+.about-text p { margin-bottom:16px; }
+
+.heritage-badge {
+  background:linear-gradient(135deg, var(--maroon), var(--maroon-dark));
+  border-radius:16px; padding:25px; margin-bottom:20px;
+  border:1px solid rgba(201,151,58,0.3); text-align:center;
+  box-shadow:var(--shadow-maroon);
+}
+.heritage-num { font-family:var(--font-display); font-size:3.5rem; font-weight:900; color:var(--gold-light); line-height:1; }
+.heritage-label { font-family:var(--font-ui); font-size:0.72rem; color:rgba(255,255,255,0.6); letter-spacing:3px; text-transform:uppercase; }
+
+.why-grid { display:flex; flex-direction:column; gap:10px; }
+.why-item {
+  display:flex; align-items:center; gap:14px;
+  background:var(--white); border:1px solid rgba(201,151,58,0.15);
+  border-radius:10px; padding:14px 16px; transition:all 0.3s;
+  box-shadow:0 2px 10px rgba(201,151,58,0.06);
+}
+.why-item:hover { border-color:var(--gold); transform:translateX(6px); box-shadow:var(--shadow-gold); }
+.why-gem { color:var(--gold); font-size:1rem; flex-shrink:0; }
+.why-item span { font-size:0.9rem; color:var(--text-mid); font-family:var(--font-ui); font-weight:500; }
+
+/* ===== PRODUCTS ===== */
+#products { background:var(--cream-dark); }
+
+.products-tabs {
+  display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-bottom:35px;
+}
+.tab-btn {
+  padding:8px 18px; border-radius:25px; border:1px solid rgba(201,151,58,0.3);
+  background:transparent; color:var(--text-mid); font-size:0.78rem;
+  font-family:var(--font-display); font-weight:600; cursor:pointer;
+  letter-spacing:1px; text-transform:uppercase; transition:all 0.3s;
+}
+.tab-btn:hover,.tab-btn.active {
+  background:var(--maroon); color:var(--gold-light); border-color:var(--maroon);
+  box-shadow:var(--shadow-maroon);
+}
+
+.category-section { display:none; }
+.category-section.active { display:block; }
+
+.cat-title {
+  font-family:var(--font-display); font-size:1.4rem; font-weight:700;
+  color:var(--maroon); margin-bottom:20px; text-align:center;
+  display:flex; align-items:center; gap:12px; justify-content:center;
+}
+.cat-title::before,.cat-title::after {
+  content:''; flex:1; height:1px; max-width:80px;
+  background:linear-gradient(90deg,transparent,var(--gold));
+}
+.cat-title::after { background:linear-gradient(90deg,var(--gold),transparent); }
+
+.products-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px;
+}
+
+.product-item {
+  background:var(--white); border:1px solid rgba(201,151,58,0.15);
+  border-radius:14px; padding:20px; text-align:center;
+  transition:all 0.4s; cursor:pointer;
+  box-shadow:0 2px 15px rgba(201,151,58,0.06);
+  position:relative; overflow:visible;
+}
+.product-item::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(201,151,58,0.03), transparent);
+  opacity:0; transition:0.3s;
+  pointer-events:none;
+}
+.product-item:hover { border-color:var(--gold); transform:translateY(-5px); box-shadow:var(--shadow-gold); }
+.product-item:hover::before { opacity:1; }
+
+.product-icon {
+  width:55px; height:55px; border-radius:50%;
+  background:linear-gradient(135deg,rgba(201,151,58,0.1),rgba(107,31,58,0.08));
+  border:1px solid rgba(201,151,58,0.2);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.4rem; margin:0 auto 12px; transition:all 0.3s;
+}
+.product-item:hover .product-icon { background:linear-gradient(135deg,var(--maroon),var(--maroon-dark)); transform:scale(1.1); }
+
+.product-name {
+  font-family:var(--font-display); font-size:0.88rem; font-weight:600;
+  color:var(--maroon); margin-bottom:5px; letter-spacing:0.5px;
+}
+.product-sub {
+  font-family:var(--font-ui); font-size:0.7rem; color:var(--text-mid); font-weight:400;
+}
+.product-inquire {
+  margin-top:12px; display:inline-flex; align-items:center; gap:6px;
+  background:#25D366; color:white; text-decoration:none;
+  padding:7px 14px; border-radius:20px; font-size:0.68rem; font-weight:700;
+  font-family:var(--font-ui); transition:all 0.3s;
+  position:relative; z-index:2;
+}
+.product-inquire:hover { background:#20BA5A; transform:scale(1.05); }
+
+/* ===== GALLERY ===== */
+#gallery { background:var(--maroon-dark); }
+#gallery .section-title { color:var(--gold-light); }
+
+.gallery-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:12px; margin-top:30px;
+}
+.gallery-item {
+  border-radius:12px; overflow:hidden; aspect-ratio:1; position:relative;
+  cursor:pointer; border:1px solid rgba(201,151,58,0.2); transition:all 0.3s;
+}
+.gallery-item:hover { border-color:var(--gold); transform:scale(1.03); box-shadow:0 10px 40px rgba(201,151,58,0.3); }
+.gallery-item img { width:100%; height:100%; object-fit:cover; display:block; }
+.gallery-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(107,31,58,0.85),transparent);
+  opacity:0; transition:0.3s; display:flex; align-items:flex-end; padding:12px;
+  color:var(--gold-light); font-weight:600; font-size:0.82rem;
+  font-family:var(--font-display); letter-spacing:1px;
+}
+.gallery-item:hover .gallery-overlay { opacity:1; }
+.gallery-placeholder {
+  border-radius:12px; aspect-ratio:1;
+  background:rgba(255,255,255,0.04); border:1px dashed rgba(201,151,58,0.2);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  color:rgba(201,151,58,0.4); gap:8px;
+  font-family:var(--font-display); font-size:0.72rem; letter-spacing:1px;
+}
+.gallery-placeholder i { font-size:1.8rem; }
+
+/* ===== SHARE / QR ===== */
+#footer-share { background:var(--cream); padding:70px 20px; }
+.share-inner { max-width:600px; margin:0 auto; text-align:center; }
+
+.qr-box {
+  background:linear-gradient(135deg,var(--maroon-dark),var(--maroon));
+  border-radius:20px; padding:35px; margin-top:30px;
+  border:1px solid rgba(201,151,58,0.3);
+  box-shadow:var(--shadow-gold);
+}
+.qr-box p { color:rgba(255,255,255,0.7); font-size:0.9rem; margin-bottom:20px; font-family:var(--font-ui); }
+#qrcode {
+  display:inline-block; background:#fff; padding:12px;
+  border-radius:12px; box-shadow:0 0 30px rgba(201,151,58,0.3);
+  border:3px solid var(--gold);
+}
+
+.url-box {
+  display:flex; align-items:center; gap:10px;
+  background:rgba(255,255,255,0.08); border:1px solid rgba(201,151,58,0.2);
+  border-radius:10px; padding:12px 16px; margin:20px 0; text-align:left;
+}
+.url-box i { color:var(--gold); flex-shrink:0; }
+.url-box span { flex:1; font-size:0.82rem; color:rgba(255,255,255,0.8); word-break:break-all; font-family:var(--font-ui); }
+.copy-btn {
+  background:var(--gold); color:var(--maroon-dark); border:none; cursor:pointer;
+  padding:7px 16px; border-radius:7px; font-size:0.75rem; font-weight:800;
+  font-family:var(--font-display); letter-spacing:1px; flex-shrink:0; transition:0.3s;
+}
+.copy-btn:hover { background:var(--gold-light); }
+
+.share-btns { display:flex; gap:10px; flex-wrap:wrap; justify-content:center; margin-top:15px; }
+.share-btn {
+  display:flex; align-items:center; gap:8px;
+  padding:12px 22px; border-radius:8px;
+  font-weight:700; font-size:0.78rem; border:none; cursor:pointer;
+  text-decoration:none; transition:all 0.3s; font-family:var(--font-display);
+  letter-spacing:1px; text-transform:uppercase;
+}
+.sb-save { background:linear-gradient(135deg,var(--gold),var(--gold-light)); color:var(--maroon-dark); }
+.sb-save:hover { transform:translateY(-2px); box-shadow:var(--shadow-gold); }
+.sb-share { background:rgba(255,255,255,0.1); color:var(--white); border:1px solid rgba(255,255,255,0.2); }
+.sb-share:hover { border-color:var(--gold); color:var(--gold-light); transform:translateY(-2px); }
+.sb-wa { background:#25D366; color:#fff; }
+.sb-wa:hover { background:#20BA5A; transform:translateY(-2px); }
+
+/* ===== PIXORA BRANDING ===== */
+#pixora-brand {
+  background:linear-gradient(135deg,#0D0D1A 0%,#1A1030 50%,#0D0D1A 100%);
+  padding:50px 20px; position:relative; overflow:hidden;
+}
+#pixora-brand::before {
+  content:''; position:absolute; top:-60px; left:-60px; width:250px; height:250px; border-radius:50%;
+  background:radial-gradient(circle,rgba(168,85,247,0.15) 0%,transparent 70%); pointer-events:none;
+}
+#pixora-brand::after {
+  content:''; position:absolute; bottom:-60px; right:-60px; width:300px; height:300px; border-radius:50%;
+  background:radial-gradient(circle,rgba(236,72,153,0.12) 0%,transparent 70%); pointer-events:none;
+}
+.pixora-inner {
+  max-width:960px; margin:0 auto; position:relative; z-index:2;
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:30px;
+}
+.pixora-logo-block { display:flex; align-items:center; gap:18px; flex-shrink:0; }
+.pixora-logo-mark {
+  width:50px; height:50px; border-radius:12px;
+  background:linear-gradient(135deg,#a855f7,#ec4899);
+  display:flex; align-items:center; justify-content:center;
+  font-size:1rem; font-weight:900; color:white;
+  box-shadow:0 0 20px rgba(168,85,247,0.5); flex-shrink:0;
+  font-family:'Cinzel',serif;
+}
+.pixora-name { font-family:'Cinzel',serif; font-size:1.1rem; font-weight:800; color:#fff; }
+.pixora-name span { color:#a855f7; }
+.pixora-sub { font-size:0.68rem; color:rgba(255,255,255,0.4); letter-spacing:1px; font-family:'Nunito',sans-serif; }
+.pixora-services { flex:1; min-width:250px; display:flex; flex-direction:column; gap:10px; }
+.pixora-services-label { font-size:0.7rem; color:rgba(255,255,255,0.4); text-transform:uppercase; letter-spacing:2px; font-weight:600; font-family:'Nunito',sans-serif; }
+.pixora-tags { display:flex; flex-wrap:wrap; gap:8px; }
+.ptag-p { background:rgba(168,85,247,0.15); border:1px solid rgba(168,85,247,0.35); color:#d8b4fe; padding:5px 13px; border-radius:20px; font-size:0.75rem; font-weight:600; white-space:nowrap; font-family:'Nunito',sans-serif; }
+.ptag-k { background:rgba(236,72,153,0.15); border:1px solid rgba(236,72,153,0.35); color:#f9a8d4; padding:5px 13px; border-radius:20px; font-size:0.75rem; font-weight:600; white-space:nowrap; font-family:'Nunito',sans-serif; }
+.pixora-cta { display:flex; flex-direction:column; align-items:center; gap:10px; flex-shrink:0; }
+.pixora-dev-label { font-size:0.72rem; color:rgba(255,255,255,0.4); font-family:'Nunito',sans-serif; }
+.pixora-btn {
+  display:inline-flex; align-items:center; gap:9px;
+  background:linear-gradient(135deg,#a855f7,#ec4899); color:white; text-decoration:none;
+  padding:13px 26px; border-radius:30px; font-size:0.88rem; font-weight:700;
+  box-shadow:0 6px 25px rgba(168,85,247,0.45); transition:all 0.3s; white-space:nowrap;
+  font-family:'Nunito',sans-serif;
+}
+.pixora-btn:hover { transform:translateY(-3px); box-shadow:0 12px 35px rgba(168,85,247,0.6); }
+.pixora-url { font-size:0.68rem; color:rgba(255,255,255,0.3); font-family:'Nunito',sans-serif; }
+.pixora-divider {
+  max-width:960px; margin:30px auto 0; border-top:1px solid rgba(255,255,255,0.07);
+  padding-top:18px; display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.pixora-dot { width:6px; height:6px; border-radius:50%; flex-shrink:0; }
+.pixora-tagline-text { font-size:0.72rem; color:rgba(255,255,255,0.25); letter-spacing:1px; text-align:center; font-family:'Nunito',sans-serif; }
+
+@media(max-width:768px){
+  .pixora-inner { flex-direction:column !important; align-items:center !important; text-align:center !important; }
+  .pixora-logo-block { align-items:center !important; justify-content:center !important; }
+  .pixora-services { align-items:center !important; min-width:unset !important; }
+  .pixora-tags { justify-content:center !important; }
+  .pixora-cta { align-items:center !important; }
+}
+
+/* ===== BOTTOM CREDIT ===== */
+.bottom-credit {
+  background:var(--maroon-deep); text-align:center;
+  padding:16px 20px; color:rgba(255,255,255,0.4); font-size:0.78rem;
+  font-family:var(--font-ui); border-top:1px solid rgba(201,151,58,0.15);
+}
+.bottom-credit a { color:var(--gold); text-decoration:none; font-weight:600; }
+
+/* ===== ANIMATIONS ===== */
+.fade-in { opacity:0; transform:translateY(25px); transition:all 0.7s ease; }
+.fade-in.visible { opacity:1; transform:translateY(0); }
+.fade-left { opacity:0; transform:translateX(-25px); transition:all 0.7s ease; }
+.fade-left.visible { opacity:1; transform:translateX(0); }
+.fade-right { opacity:0; transform:translateX(25px); transition:all 0.7s ease; }
+.fade-right.visible { opacity:1; transform:translateX(0); }
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  nav { display:none; }
+  .hamburger { display:flex; }
+  .products-grid { grid-template-columns:repeat(2,1fr); }
+  .gallery-grid { grid-template-columns:repeat(2,1fr); }
+  .hero-ring-deco { width:130px; height:130px; }
+  .hero-logo { width:105px; height:105px; }
+}
+@media(max-width:420px){
+  .products-grid { grid-template-columns:1fr 1fr; }
+  .tab-btn { font-size:0.7rem; padding:7px 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Floating Jewelry Background -->
+<div class="jewelry-bg">
+  <!-- Ring SVG -->
+  <svg class="jbg-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="35" fill="none" stroke="currentColor" stroke-width="8"/>
+    <circle cx="50" cy="15" r="8" fill="currentColor"/>
+  </svg>
+  <!-- Diamond SVG -->
+  <svg class="jbg-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="50,5 95,35 75,95 25,95 5,35" fill="none" stroke="currentColor" stroke-width="4"/>
+    <polygon points="50,5 95,35 50,50 5,35" fill="currentColor" opacity="0.5"/>
+  </svg>
+  <!-- Necklace SVG -->
+  <svg class="jbg-3" viewBox="0 0 100 80" xmlns="http://www.w3.org/2000/svg">
+    <path d="M10,10 Q50,60 90,10" fill="none" stroke="currentColor" stroke-width="5"/>
+    <circle cx="50" cy="65" r="12" fill="currentColor"/>
+  </svg>
+  <!-- Flower SVG -->
+  <svg class="jbg-4" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="12" fill="currentColor"/>
+    <ellipse cx="50" cy="22" rx="10" ry="16" fill="currentColor" opacity="0.6"/>
+    <ellipse cx="50" cy="78" rx="10" ry="16" fill="currentColor" opacity="0.6"/>
+    <ellipse cx="22" cy="50" rx="16" ry="10" fill="currentColor" opacity="0.6"/>
+    <ellipse cx="78" cy="50" rx="16" ry="10" fill="currentColor" opacity="0.6"/>
+  </svg>
+  <!-- Star -->
+  <svg class="jbg-5" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="50,5 61,35 95,35 68,57 79,91 50,70 21,91 32,57 5,35 39,35" fill="currentColor" opacity="0.7"/>
+  </svg>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="header-inner">
+    <div class="header-logo">
+      <img src="" alt="JP Jewellers"
+        onerror="this.style.display='none'"/>
+      <div class="header-logo-text">
+        <div class="name">J.P. JEWELLERS</div>
+        <div class="sub">Since 1985 · Morbi</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#links">Links</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#gallery">Gallery</a>
+    </nav>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#home" onclick="closeMenu()">Home</a>
+    <a href="#links" onclick="closeMenu()">Links</a>
+    <a href="#about" onclick="closeMenu()">About Us</a>
+    <a href="#products" onclick="closeMenu()">Products</a>
+    <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section id="home">
+  <div class="hero-content">
+    <div class="hero-ring-deco">
+      <div class="ring-orbit"></div>
+      <img src="image/logo.jpg" alt="JP Jewellers" class="hero-logo"
+        onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22130%22 height=%22130%22 viewBox=%220 0 130 130%22><circle cx=%2265%22 cy=%2265%22 r=%2265%22 fill=%22%236B1F3A%22/><text x=%2265%22 y=%2285%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22%23C9973A%22>JP</text></svg>'"/>
+    </div>
+
+    <div class="hero-since">Since 1985</div>
+    <div class="hero-title">J.P. <span>JEWELLERS</span></div>
+    <div class="hero-subtitle">Gold · Diamond · Monzo · Legacy Defined</div>
+
+    <div class="ornament">
+      <div class="ornament-gem">💎</div>
+    </div>
+
+    <div class="hero-tagline">"Not just jewels, but traditions you wear."</div>
+
+    <div class="hero-gems-row">
+      <span>💍</span><span>💎</span><span>👑</span><span>✨</span><span>🏅</span>
+    </div>
+
+    <div class="hero-btns">
+      <a href="#products" class="btn btn-gold">💎 Explore Collection</a>
+      <a href="https://wa.me/917201946000?text=Hi!%20I%20want%20to%20inquire%20about%20Jewellery" class="btn btn-outline-gold" target="_blank"><i class="fab fa-whatsapp"></i> Enquire Now</a>
+      <a href="#contact" class="btn btn-outline-gold"><i class="fas fa-phone"></i> Contact</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label fade-in">✦ Get In Touch ✦</div>
+      <div class="section-title fade-in">Contact <span>Us</span></div>
+    </div>
+    <div class="owner-hero fade-in">
+      <img src="image/logo.jpg" alt=""class="owner-avatar">
+      <div class="owner-name">J.P. JEWELLERS™</div>
+      <div class="owner-role">Ravapar Road, Morbi · Since 1985</div>
+      <div class="contact-links">
+        <a href="tel:+917201946000" class="contact-link">
+          <div class="cl-icon cl-call"><i class="fas fa-phone"></i></div>
+          <div class="cl-info"><small>JIGAR N ADESARA</small><span>+91 98980 33685</span></div>
+        </a>
+        <a href="https://wa.me/917201946000?text=Hi!%20I%20want%20to%20inquire%20about%20Jewellery" class="contact-link" target="_blank">
+          <div class="cl-icon cl-wp"><i class="fab fa-whatsapp"></i></div>
+          <div class="cl-info"><span>Chat with us instantly</span></div>
+        </a>
+        <a href="https://maps.app.goo.gl/cA6pj9vwbW8PxJvq6" class="contact-link" target="_blank">
+          <div class="cl-icon cl-loc"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="cl-info"><span>Ravapar Road, Morbi, Gujarat</span></div>
+        </a>
+      </div>
+    </div>
+    <button class="add-contact-btn fade-in" onclick="addToPhonebook()">
+      <i class="fas fa-user-plus"></i> Add to Phonebook
+    </button>
+  </div>
+</section>
+
+<!-- ===== SOCIAL LINKS ===== -->
+<section id="links" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label fade-in" style="color:var(--gold);">✦ Follow Us ✦</div>
+      <div class="section-title fade-in" style="color:var(--gold-light);">Stay <span style="color:var(--white);">Connected</span></div>
+    </div>
+    <div class="social-grid">
+      <a href="https://www.instagram.com/j.p.jewelers?igsh=MTU0ZjFxbDVxYTZx&utm_source=qr" class="social-card sc-ig fade-in" target="_blank">
+        <i class="fab fa-instagram" style="color:#e1306c;"></i> Instagram
+      </a>
+      <a href="https://www.facebook.com/share/1DAwd327dH/?mibextid=wwXIfr" class="social-card sc-fb fade-in" target="_blank">
+        <i class="fab fa-facebook-f" style="color:#1877F2;"></i> Facebook
+      </a>
+      <a href="https://youtube.com/@jpjewellersmorbi?si=CpzLbh3L0aQBGXML" class="social-card sc-yt fade-in" target="_blank">
+        <i class="fab fa-youtube" style="color:#FF0000;"></i> YouTube
+      </a>
+      <a href="https://wa.me/917201946000" class="social-card sc-wa fade-in" target="_blank">
+        <i class="fab fa-whatsapp" style="color:#25D366;"></i> WhatsApp
+      </a>
+      <a href="" class="social-card sc-gm fade-in" target="_blank">
+        <i class="fab fa-google" style="color:#4285F4;"></i> Google Map
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label fade-in">✦ Our Legacy ✦</div>
+      <div class="section-title fade-in">About <span>J.P. Jewellers</span></div>
+    </div>
+    <div class="about-grid">
+      <div class="fade-left">
+        <div class="about-text">
+          <p>Welcome to <strong>J.P. Jewellers</strong> — a name synonymous with trust, tradition, and timeless beauty. Established in <strong>1985</strong> in Morbi, Gujarat, we have been crafting and curating exquisite jewellery for over four decades.</p>
+          <p>We specialize in a magnificent range of <strong>Gold, Diamond, Silver, and Monzo jewellery</strong>, each piece crafted with meticulous artistry and deep passion. From bridal masterpieces to everyday elegance, every creation tells a unique story.</p>
+          <p>At J.P. Jewellers, we believe that jewellery is more than adornment — it is <strong>emotion, memory, and identity</strong>. Our collection celebrates the rich heritage of Indian craftsmanship fused with contemporary design sensibilities.</p>
+          <p>With thousands of satisfied customers across Gujarat and beyond, our legacy is built on <strong>purity, trust, and unmatched craftsmanship</strong>. Visit us and experience jewellery the way it was meant to be — personal, precious, and perfect.</p>
+        </div>
+      </div>
+      <div class="fade-right">
+        <div class="heritage-badge">
+          <div class="hero-gems-row" style="font-size:1.2rem;margin-bottom:12px;">
+            <span>💍</span><span>💎</span><span>👑</span>
+          </div>
+          <div class="heritage-num">40+</div>
+          <div class="heritage-label">Years of Legacy</div>
+        </div>
+        <div class="why-grid">
+          <div class="why-item"><div class="why-gem">💎</div><span>Hallmarked Gold & Certified Diamonds</span></div>
+          <div class="why-item"><div class="why-gem">👑</div><span>Bridal & Wedding Specialization</span></div>
+          <div class="why-item"><div class="why-gem">✨</div><span>Custom Design & Personalization</span></div>
+          <div class="why-item"><div class="why-gem">🏅</div><span>Trusted Since 1985 — 40+ Years</span></div>
+          <div class="why-item"><div class="why-gem">💍</div><span>Wide Range from Classic to Modern</span></div>
+          <div class="why-item"><div class="why-gem">🛡️</div><span>Exchange & Buyback Policy</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label fade-in">✦ Our Collection ✦</div>
+      <div class="section-title fade-in">Jewellery <span>Collection</span></div>
+      <div class="section-desc fade-in">Discover our exquisite range of handcrafted jewellery</div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="products-tabs fade-in">
+      <button class="tab-btn active" onclick="showTab('rings',this)">💍 Rings</button>
+      <button class="tab-btn" onclick="showTab('chains',this)">⛓️ Chains</button>
+      <button class="tab-btn" onclick="showTab('necklaces',this)">📿 Necklaces</button>
+      <button class="tab-btn" onclick="showTab('sets',this)">👑 Jewelry Sets</button>
+      <button class="tab-btn" onclick="showTab('earrings',this)">✨ Earrings</button>
+      <button class="tab-btn" onclick="showTab('bangles',this)">⭕ Bangles</button>
+      <button class="tab-btn" onclick="showTab('bracelets',this)">🔗 Bracelets</button>
+      <button class="tab-btn" onclick="showTab('anklets',this)">🦶 Anklets</button>
+      <button class="tab-btn" onclick="showTab('noserings',this)">💫 Nose Rings</button>
+      <button class="tab-btn" onclick="showTab('mangalsutra',this)">🌺 Mangalsutra</button>
+      <button class="tab-btn" onclick="showTab('mens',this)">🎖️ Men's</button>
+      <button class="tab-btn" onclick="showTab('kids',this)">🌟 Kids</button>
+    </div>
+
+    <!-- RINGS -->
+    <div class="category-section active" id="cat-rings">
+      <div class="cat-title">💍 Rings Collection</div>
+      <div class="products-grid">
+        <div class="product-item fade-in">
+          <div class="product-icon">💍</div>
+          <div class="product-name">Engagement Rings</div>
+          <div class="product-sub">Symbol of eternal love</div>
+          <a href="https://wa.me/917201946000 text=I%20want%20to%20inquire%20about%20Engagement%20Rings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a>
+        </div>
+        <div class="product-item fade-in">
+          <div class="product-icon">💒</div>
+          <div class="product-name">Wedding Rings</div>
+          <div class="product-sub">For a lifetime together</div>
+          <a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Wedding%20Rings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a>
+        </div>
+        <div class="product-item fade-in">
+          <div class="product-icon">❤️</div>
+          <div class="product-name">Couple Rings</div>
+          <div class="product-sub">Made for two hearts</div>
+          <a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Couple%20Rings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a>
+        </div>
+        <div class="product-item fade-in">
+          <div class="product-icon">💎</div>
+          <div class="product-name">Diamond Rings</div>
+          <div class="product-sub">Pure brilliance crafted</div>
+          <a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Diamond%20Rings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a>
+        </div>
+        <div class="product-item fade-in">
+          <div class="product-icon">🔄</div>
+          <div class="product-name">Adjustable Rings</div>
+          <div class="product-sub">Perfect fit, always</div>
+          <a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Adjustable%20Rings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHAINS -->
+    <div class="category-section" id="cat-chains">
+      <div class="cat-title">⛓️ Chains Collection</div>
+      <div class="products-grid">
+        <div class="product-item fade-in"><div class="product-icon">🥇</div><div class="product-name">Gold Chains</div><div class="product-sub">Pure & hallmarked gold</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Gold%20Chains" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">🥈</div><div class="product-name">Silver Chains</div><div class="product-sub">Elegant silver designs</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Silver%20Chains" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">🎖️</div><div class="product-name">Men's Chains</div><div class="product-sub">Bold masculine styles</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Men%20Chains" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">✨</div><div class="product-name">Layered Chains</div><div class="product-sub">Trendy layered styles</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Layered%20Chains" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+      </div>
+    </div>
+
+    <!-- NECKLACES -->
+    <div class="category-section" id="cat-necklaces">
+      <div class="cat-title">📿 Necklaces Collection</div>
+      <div class="products-grid">
+        <div class="product-item fade-in"><div class="product-icon">📿</div><div class="product-name">Pendant Necklaces</div><div class="product-sub">Delicate & graceful</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Pendant%20Necklaces" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">🤍</div><div class="product-name">Pearl Necklaces</div><div class="product-sub">Classic timeless pearls</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Pearl%20Necklaces" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">🛕</div><div class="product-name">Temple Necklaces</div><div class="product-sub">Traditional temple art</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Temple%20Necklaces" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">💫</div><div class="product-name">Choker Necklaces</div><div class="product-sub">Bold & fashionable</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Choker%20Necklaces" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+      </div>
+    </div>
+
+    <!-- JEWELRY SETS -->
+    <div class="category-section" id="cat-sets">
+      <div class="cat-title">👑 Jewelry Sets Collection</div>
+      <div class="products-grid">
+        <div class="product-item fade-in"><div class="product-icon">👰</div><div class="product-name">Bridal Sets</div><div class="product-sub">Complete bridal glory</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Bridal%20Sets" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">📿</div><div class="product-name">Necklace Sets</div><div class="product-sub">Matching perfection</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Necklace%20Sets" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">✨</div><div class="product-name">Pendant Sets</div><div class="product-sub">Elegant coordinated sets</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Pendant%20Sets" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">🎉</div><div class="product-name">Party Wear Sets</div><div class="product-sub">Dazzle every occasion</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Party%20Wear%20Sets" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+      </div>
+    </div>
+
+    <!-- EARRINGS -->
+    <div class="category-section" id="cat-earrings">
+      <div class="cat-title">✨ Earrings Collection</div>
+      <div class="products-grid">
+        <div class="product-item fade-in"><div class="product-icon">🔘</div><div class="product-name">Stud Earrings</div><div class="product-sub">Minimalist elegance</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Stud%20Earrings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">🔔</div><div class="product-name">Jhumkas</div><div class="product-sub">Classic Indian bells</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Jhumkas" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">⭕</div><div class="product-name">Hoop Earrings</div><div class="product-sub">Modern statement piece</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Hoop%20Earrings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">💧</div><div class="product-name">Drop Earrings</div><div class="product-sub">Graceful draping drops</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Drop%20Earrings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+      </div>
+    </div>
+
+    <!-- BANGLES -->
+    <div class="category-section" id="cat-bangles">
+      <div class="cat-title">⭕ Bangles Collection</div>
+      <div class="products-grid">
+        <div class="product-item fade-in"><div class="product-icon">🥇</div><div class="product-name">Gold Bangles</div><div class="product-sub">Pure gold craftsmanship</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Gold%20Bangles" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">👰</div><div class="product-name">Bridal Bangles</div><div class="product-sub">For the special day</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Bridal%20Bangles" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">🛕</div><div class="product-name">Traditional Bangles</div><div class="product-sub">Heritage & culture</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Traditional%20Bangles" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+      </div>
+    </div>
+
+    <!-- BRACELETS -->
+    <div class="category-section" id="cat-bracelets">
+      <div class="cat-title">🔗 Bracelets Collection</div>
+      <div class="products-grid">
+        <div class="product-item fade-in"><div class="product-icon">🎁</div><div class="product-name">Charm Bracelets</div><div class="product-sub">Meaningful & personal</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Charm%20Bracelets" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">💎</div><div class="product-name">Tennis Bracelets</div><div class="product-sub">Diamond line elegance</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Tennis%20Bracelets" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">❤️</div><div class="product-name">Couple Bracelets</div><div class="product-sub">Bond that never breaks</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Couple%20Bracelets" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">⭕</div><div class="product-name">Kada Bracelets</div><div class="product-sub">Bold traditional kada</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Kada%20Bracelets" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+      </div>
+    </div>
+
+    <!-- ANKLETS -->
+    <div class="category-section" id="cat-anklets">
+      <div class="cat-title">🦶 Anklets Collection</div>
+      <div class="products-grid">
+        <div class="product-item fade-in"><div class="product-icon">🥈</div><div class="product-name">Silver Anklets</div><div class="product-sub">Classic silver payal</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Silver%20Anklets" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">🛕</div><div class="product-name">Traditional Anklets</div><div class="product-sub">Heritage craftsmanship</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Traditional%20Anklets" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">✨</div><div class="product-name">Designer Anklets</div><div class="product-sub">Contemporary designs</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Designer%20Anklets" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+      </div>
+    </div>
+
+    <!-- NOSE RINGS -->
+    <div class="category-section" id="cat-noserings">
+      <div class="cat-title">💫 Nose Rings Collection</div>
+      <div class="products-grid">
+        <div class="product-item fade-in"><div class="product-icon">🌸</div><div class="product-name">Nath</div><div class="product-sub">Traditional Indian nath</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Nath" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">🔘</div><div class="product-name">Stud Nose Rings</div><div class="product-sub">Subtle & stylish</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Stud%20Nose%20Rings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">👰</div><div class="product-name">Bridal Nose Rings</div><div class="product-sub">Grand bridal nath</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Bridal%20Nose%20Rings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+      </div>
+    </div>
+
+    <!-- MANGALSUTRA -->
+    <div class="category-section" id="cat-mangalsutra">
+      <div class="cat-title">🌺 Mangalsutra Collection</div>
+      <div class="products-grid">
+        <div class="product-item fade-in"><div class="product-icon">🥇</div><div class="product-name">Gold Mangalsutra</div><div class="product-sub">Sacred gold bond</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Gold%20Mangalsutra" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">💎</div><div class="product-name">Diamond Mangalsutra</div><div class="product-sub">Diamond studded beauty</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Diamond%20Mangalsutra" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">✨</div><div class="product-name">Modern Mangalsutra</div><div class="product-sub">Contemporary sacred wear</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Modern%20Mangalsutra" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+      </div>
+    </div>
+
+    <!-- MEN'S -->
+    <div class="category-section" id="cat-mens">
+      <div class="cat-title">🎖️ Men's Jewelry Collection</div>
+      <div class="products-grid">
+        <div class="product-item fade-in"><div class="product-icon">⛓️</div><div class="product-name">Men's Chains</div><div class="product-sub">Bold & masculine</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Men%20Chains" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">💍</div><div class="product-name">Men's Rings</div><div class="product-sub">Statement rings for men</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Men%20Rings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">⭕</div><div class="product-name">Men's Kada</div><div class="product-sub">Traditional power kada</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Men%20Kada" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+      </div>
+    </div>
+
+    <!-- KIDS -->
+    <div class="category-section" id="cat-kids">
+      <div class="cat-title">🌟 Kids Jewelry Collection</div>
+      <div class="products-grid">
+        <div class="product-item fade-in"><div class="product-icon">🔗</div><div class="product-name">Kids Bracelets</div><div class="product-sub">Cute & safe designs</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Kids%20Bracelets" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">✨</div><div class="product-name">Kids Earrings</div><div class="product-sub">Adorable small earrings</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Kids%20Earrings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+        <div class="product-item fade-in"><div class="product-icon">💍</div><div class="product-name">Kids Rings</div><div class="product-sub">Tiny precious rings</div><a href="https://wa.me/917201946000?text=I%20want%20to%20inquire%20about%20Kids%20Rings" class="product-inquire" target="_blank"><i class="fab fa-whatsapp"></i> Inquire</a></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery" class="section">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label fade-in" style="color:var(--gold);">✦ Our Showroom ✦</div>
+      <div class="section-title fade-in" style="color:var(--gold-light);">Jewellery <span style="color:var(--white);">Gallery</span></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-in">
+        <img src="image/001.jpeg" alt="Diamond Jewellery"/>
+        <div class="gallery-overlay">Diamond Jewellery</div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="image/002.jpeg" alt="Gold Necklaces"/>
+        <div class="gallery-overlay">Gold Necklaces</div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="image/004.jpeg" alt="Ring Collection"/>
+        <div class="gallery-overlay">Ring Collection</div>
+      </div>
+      <div class="gallery-item fade-in">
+        <img src="image/003.jpeg" alt="Bridal Sets"/>
+        <div class="gallery-overlay">Bridal Sets</div>
+      </div>
+  <div class="gallery-item fade-in">
+    <img src="image/005.jpeg" alt="Our Showroom"/>
+    <div class="gallery-overlay">Our Showroom</div>
+  </div>
+  <div class="gallery-item fade-in">
+    <img src="image/006.jpeg" alt="Our Collection"/>
+    <div class="gallery-overlay">Our Collection</div>
+  </div>
+</div>
+  </div>
+</section>
+
+<!-- ===== SHARE / QR ===== -->
+<section id="footer-share">
+  <div class="share-inner">
+    <div class="section-header">
+      <div class="section-label fade-in">✦ Share ✦</div>
+      <div class="section-title fade-in">Scan <span>& Share</span></div>
+    </div>
+    <div class="qr-box fade-in">
+      <p>Scan the QR code or share the link to visit our digital card</p>
+      <div id="qrcode"></div>
+      <div class="url-box">
+        <i class="fas fa-link"></i>
+        <span id="pageUrl">https://pixoradigital.in/digital_cards/jpjewellers/</span>
+        <button class="copy-btn" onclick="copyUrl()">Copy</button>
+      </div>
+      <div class="share-btns">
+        <button class="share-btn sb-save" onclick="saveQR()"><i class="fas fa-download"></i> Save QR</button>
+        <button class="share-btn sb-share" onclick="sharePage()"><i class="fas fa-share-alt"></i> Share</button>
+        <a href="https://wa.me/?text=Explore%20J.P.%20Jewellers%20-%20-%20https://pixoradigital.in/digital_cards/jpjewellers/" class="share-btn sb-wa" target="_blank"><i class="fab fa-whatsapp"></i> Share on WA</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PIXORA BRANDING SECTION ===== -->
+<section id="pixora-brand" style="
+  background: linear-gradient(135deg, #0D0D1A 0%, #1A1030 50%, #0D0D1A 100%);
+  padding: 50px 20px;
+  position: relative;
+  overflow: hidden;
+">
+
+  <!-- Glowing background orbs -->
+  <div style="
+    position:absolute; top:-60px; left:-60px;
+    width:250px; height:250px; border-radius:50%;
+    background: radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%);
+    pointer-events:none;
+  "></div>
+  <div style="
+    position:absolute; bottom:-60px; right:-60px;
+    width:300px; height:300px; border-radius:50%;
+    background: radial-gradient(circle, rgba(236,72,153,0.12) 0%, transparent 70%);
+    pointer-events:none;
+  "></div>
+
+  <div class="pixora-inner" style="
+    max-width: 960px; margin: 0 auto;
+    display: flex; flex-wrap: wrap;
+    align-items: center; justify-content: space-between;
+    gap: 30px; position: relative; z-index: 2;
+  ">
+
+    <!-- LEFT: Pixora Branding -->
+    <div class="pixora-logo-block" style="display:flex; align-items:center; gap:18px; flex-shrink:0;">
+      <div>
+        <img src="image/Logo-with-name.png" alt="Pixora Digital Logo" style="width:150px; margin-top:4px;"/>
+        <div style="
+          font-size: 0.72rem; color: rgba(255,255,255,0.45);
+          font-weight: 500; letter-spacing: 0.5px;
+        ">Creative Digital Agency</div>
+      </div>
+    </div>
+
+    <!-- CENTER: Services Tags -->
+    <div class="pixora-services" style="
+      flex:1; min-width:250px;
+      display:flex; flex-direction:column; gap:10px;
+    ">
+      <div style="
+        font-size: 0.7rem; color: rgba(255,255,255,0.4);
+        text-transform: uppercase; letter-spacing: 2px; font-weight: 600;
+      ">🚀 Our Services</div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+        <span style="
+          background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.35);
+          color: #d8b4fe; padding: 5px 13px; border-radius: 20px;
+          font-size: 0.75rem; font-weight: 600; white-space:nowrap;
+        ">💳 NFC Digital Card</span>
+        <span style="
+          background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.35);
+          color: #f9a8d4; padding: 5px 13px; border-radius: 20px;
+          font-size: 0.75rem; font-weight: 600; white-space:nowrap;
+        ">🌐 Website Development</span>
+        <span style="
+          background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.35);
+          color: #d8b4fe; padding: 5px 13px; border-radius: 20px;
+          font-size: 0.75rem; font-weight: 600; white-space:nowrap;
+        ">📱 Software Development</span>
+        <span style="
+          background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.35);
+          color: #f9a8d4; padding: 5px 13px; border-radius: 20px;
+          font-size: 0.75rem; font-weight: 600; white-space:nowrap;
+        ">📣 Social Media Handling</span>
+        <span style="
+          background: rgba(168,85,247,0.15); border: 1px solid rgba(168,85,247,0.35);
+          color: #d8b4fe; padding: 5px 13px; border-radius: 20px;
+          font-size: 0.75rem; font-weight: 600; white-space:nowrap;
+        ">🎯 Meta & Google Ads</span>
+        <span style="
+          background: rgba(236,72,153,0.15); border: 1px solid rgba(236,72,153,0.35);
+          color: #f9a8d4; padding: 5px 13px; border-radius: 20px;
+          font-size: 0.75rem; font-weight: 600; white-space:nowrap;
+        ">🎨 Branding & Design</span>
+      </div>
+    </div>
+
+    <!-- RIGHT: CTA Button -->
+    <div class="pixora-cta" style="display:flex; flex-direction:column; align-items:center; gap:10px; flex-shrink:0;">
+      <div style="
+        font-size:0.72rem; color:rgba(255,255,255,0.4);
+        text-align:center; letter-spacing:0.5px;
+      ">Developed by Pixora Digital</div>
+      <a href="https://wa.me/918400008487?text=Hi!%20I%20want%20to%20inquire%20about%20NFC%20Card" target="_blank" style="
+        display: inline-flex; align-items: center; gap: 9px;
+        background: linear-gradient(135deg, #a855f7, #ec4899);
+        color: white; text-decoration: none;
+        padding: 13px 26px; border-radius: 30px;
+        font-size: 0.88rem; font-weight: 700;
+        box-shadow: 0 6px 25px rgba(168,85,247,0.45);
+        transition: all 0.3s;
+        white-space: nowrap;
+        font-family: 'Poppins', sans-serif;
+      "
+      onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 35px rgba(168,85,247,0.6)'"
+      onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 25px rgba(168,85,247,0.45)'"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="12" cy="12" r="10" stroke="white" stroke-width="1.5" fill="none"/>
+          <path d="M8 12h8M14 9l3 3-3 3" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        inquire now
+      </a>
+      <div style="
+        font-size:0.68rem; color:rgba(255,255,255,0.3);
+        text-align:center;
+      ">pixoradigital.in</div>
+    </div>
+
+  </div>
+
+  <!-- Bottom divider line -->
+  <div style="
+    max-width:960px; margin:30px auto 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    padding-top: 18px;
+    display:flex; align-items:center; justify-content:center;
+    gap:8px;
+  ">
+    <div style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#a855f7,#ec4899);"></div>
+    <span style="font-size:0.72rem;color:rgba(255,255,255,0.25);letter-spacing:1px;text-align:center;">
+      POWERING DIGITAL GROWTH FOR BUSINESSES ACROSS GUJARAT
+    </span>
+    <div style="width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#ec4899,#a855f7);"></div>
+  </div>
+
+</section>
+<!-- ===== END PIXORA BRANDING SECTION ===== -->
+
+<!-- ===== BOTTOM CREDIT ===== -->
+<div class="bottom-credit">
+  © Developed by <a href="https://pixoradigital.in" target="_blank">Pixora Digital</a> &nbsp;|&nbsp; All Rights Reserved 2026
+</div>
+
+<script>
+// Mobile menu
+function toggleMenu(){ document.getElementById('mobileMenu').classList.toggle('open'); }
+function closeMenu(){ document.getElementById('mobileMenu').classList.remove('open'); }
+
+// Tab switching
+function showTab(id, btn){
+  document.querySelectorAll('.category-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('cat-'+id).classList.add('active');
+  btn.classList.add('active');
+  // Re-trigger animations
+  document.querySelectorAll('#cat-'+id+' .fade-in').forEach(function(el){
+    el.classList.remove('visible');
+    setTimeout(function(){ el.classList.add('visible'); }, 50);
+  });
+}
+
+// QR Code
+window.addEventListener('load', function(){
+  var url = window.location.href || 'https://pixoradigital.in/digital_cards/jpjewellers/';
+  new QRCode(document.getElementById('qrcode'),{
+    text: url, width:180, height:180,
+    colorDark:'#6B1F3A', colorLight:'#FFFFFF',
+    correctLevel: QRCode.CorrectLevel.H
+  });
+});
+
+function saveQR(){
+  setTimeout(function(){
+    var canvas = document.querySelector('#qrcode canvas');
+    if(canvas){ var a=document.createElement('a'); a.download='JPJewellers-QR.png'; a.href=canvas.toDataURL(); a.click(); }
+  },500);
+}
+function sharePage(){
+  if(navigator.share){ navigator.share({title:'J.P. Jewellers',text:'Explore J.P. Jewellers 💍',url:window.location.href}); }
+  else{ copyUrl(); alert('Link copied! Share anywhere.'); }
+}
+function copyUrl(){
+  var url = window.location.href || 'https://pixoradigital.in/digital_cards/jpjewellers/';
+  navigator.clipboard.writeText(url).then(function(){
+    var b=document.querySelector('.copy-btn'); b.textContent='✓ Done'; b.style.background='var(--teal)';
+    setTimeout(function(){ b.textContent='Copy'; b.style.background='var(--gold)'; },2000);
+  });
+}
+function addToPhonebook(){
+  var v='BEGIN:VCARD\nVERSION:3.0\nFN:J.P. Jewellers\nORG:J.P. Jewellers\nTEL;TYPE=CELL:+917201946000\nADR;TYPE=WORK:;;Morbi, Ravapar Road;Morbi;Gujarat;;India\nURL:https://pixoradigital.in/digital_cards/jpjewellers/\nNOTE:Gold. Diamond. Monzo. Legacy Defined. Since 1985.\nEND:VCARD';
+  var b=new Blob([v],{type:'text/vcard'}); var a=document.createElement('a');
+  a.href=URL.createObjectURL(b); a.download='JPJewellers.vcf'; a.click();
+}
+
+// Scroll animations
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('visible'); });
+},{threshold:0.08});
+document.querySelectorAll('.fade-in,.fade-left,.fade-right').forEach(function(el){ obs.observe(el); });
+</script>
+</body>
+</html>
