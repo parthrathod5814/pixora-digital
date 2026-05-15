@@ -230,6 +230,225 @@ nav a:hover {
 .mobile-menu.open {
   display:flex;
 }
+
+
+
+/* FOUNDERS SECTION*/ 
+
+#founders { background: var(--dark2); 
+  padding: 70px 20px; position: relative; overflow: hidden; }
+
+#founders::before {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 60% 40% at 20% 50%, rgba(76,175,80,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 60% at 80% 50%, rgba(76,175,80,0.04) 0%, transparent 60%);
+}
+
+/* Animated circuit lines */
+#founders::after {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background-image:
+    linear-gradient(90deg, rgba(76,175,80,0.04) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(76,175,80,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.founders-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+.founders-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 45px;
+}
+
+.founder-card {
+  background: var(--card-bg);
+  border: 1px solid rgba(76,175,80,0.12);
+  border-radius: 20px;
+  padding: 36px 28px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+}
+
+/* Top glow line */
+.founder-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+/* Subtle card bg pattern */
+.founder-card::after {
+  content: '';
+  position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, rgba(76,175,80,0.06) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.4s;
+}
+
+.founder-card:hover {
+  border-color: rgba(76,175,80,0.4);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(76,175,80,0.15), 0 0 0 1px rgba(76,175,80,0.1);
+}
+.founder-card:hover::before { transform: scaleX(1); }
+.founder-card:hover::after { opacity: 1; }
+
+/* Avatar */
+.founder-avatar-wrap {
+  position: relative;
+  width: 90px; height: 90px;
+  margin: 0 auto 20px;
+}
+
+.founder-avatar-ring {
+  position: absolute; inset: -6px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(76,175,80,0.3);
+  animation: founder-ring-spin 12s linear infinite;
+}
+
+.founder-avatar-ring::before {
+  content: '';
+  position: absolute; top: -3px; left: 50%;
+  transform: translateX(-50%);
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 8px var(--green);
+}
+
+@keyframes founder-ring-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.founder-avatar {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 2px solid rgba(76,175,80,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 2rem; font-weight: 800;
+  font-family: 'Exo 2', sans-serif;
+  color: var(--green);
+  position: relative; z-index: 1;
+  transition: all 0.4s;
+  box-shadow: 0 0 20px rgba(76,175,80,0.1);
+}
+
+.founder-card:hover .founder-avatar {
+  background: linear-gradient(135deg, rgba(76,175,80,0.2), rgba(57,255,20,0.1));
+  border-color: var(--green);
+  box-shadow: 0 0 30px rgba(76,175,80,0.25);
+  color: var(--green-bright);
+}
+
+/* Electric bolt badge */
+.founder-badge {
+  position: absolute;
+  top: 0; right: -2px;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--green);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.65rem; color: var(--black);
+  box-shadow: 0 0 10px rgba(76,175,80,0.6);
+  z-index: 2;
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+@keyframes badge-pulse {
+  0%,100% { box-shadow: 0 0 10px rgba(76,175,80,0.6); }
+  50% { box-shadow: 0 0 20px rgba(76,175,80,0.9), 0 0 40px rgba(76,175,80,0.3); }
+}
+
+.founder-name {
+  font-family: 'Exo 2', sans-serif;
+  font-size: 1.15rem; font-weight: 800;
+  color: var(--white); margin-bottom: 6px;
+  letter-spacing: 0.5px; line-height: 1.2;
+  transition: color 0.3s;
+}
+.founder-card:hover .founder-name { color: var( --green); }
+
+.founder-role {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(76,175,80,0.1);
+  border: 1px solid rgba(76,175,80,0.25);
+  color: var(--green);
+  font-size: 0.7rem; font-weight: 700;
+  padding: 5px 14px; border-radius: 20px;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  font-family: var(--font-accent);
+  margin-bottom: 16px;
+  transition: all 0.3s;
+}
+.founder-card:hover .founder-role {
+  background: rgba(76,175,80,0.18);
+  border-color: var(--green);
+  box-shadow: 0 0 12px rgba(76,175,80,0.2);
+}
+
+.founder-divider {
+  width: 40px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+  margin: 0 auto 16px;
+  transition: width 0.4s;
+}
+.founder-card:hover .founder-divider { width: 70px; }
+
+.founder-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.07);
+  color: rgba(255,255,255,0.45);
+  font-size: 0.68rem; padding: 4px 12px;
+  border-radius: 6px; font-family: var(--font-body);
+  margin-top: 4px;
+}
+.founder-tag i { font-size: 0.7rem; color: var(--green); }
+
+/* Connector lines between cards (desktop) */
+.founders-connector {
+  display: flex; align-items: center; justify-content: center;
+  gap: 0; margin: 0 0 30px;
+  position: relative;
+}
+.connector-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(76,175,80,0.3), transparent);
+  max-width: 120px;
+}
+.connector-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green);
+  flex-shrink: 0; margin: 0 8px;
+  animation: dot-blink 2s ease-in-out infinite;
+}
+.connector-dot:nth-child(3) { animation-delay: 0.5s; }
+.connector-dot:nth-child(5) { animation-delay: 1s; }
+@keyframes dot-blink {
+  0%,100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.3; transform: scale(0.6); }
+}
+
+@media(max-width: 768px) {
+  .founders-grid { grid-template-columns: 1fr; max-width: 340px; margin-left: auto; margin-right: auto; }
+  .founders-connector { display: none; }
+}
+
+
+
+
+
 /* ===== HERO ===== */
 #home {
   padding-top: 70px;
@@ -1287,6 +1506,102 @@ nav a:hover {
     </div>
   </div>
 </section>
+
+
+
+<!-- ===== FOUNDERS SECTION HTML ===== -->
+<section id="founders">
+  <div class="founders-inner">
+
+    <!-- Section Header -->
+    <div style="text-align:center;" class="fade-in">
+      <div class="section-label">The People Behind</div>
+      <h2 class="section-title">Our <span style="color:var(--green);">Founders</span></h2>
+      <p class="section-desc" style="margin:0 auto;">
+        Driven by a shared vision of clean electric mobility — the founding team of Unique E Bike.
+      </p>
+    </div>
+
+    <!-- Connector dots -->
+    <div class="founders-connector" style="margin-top:40px;">
+      <div class="connector-line"></div>
+      <div class="connector-dot"></div>
+      <div class="connector-line"></div>
+      <div class="connector-dot"></div>
+      <div class="connector-line"></div>
+      <div class="connector-dot"></div>
+      <div class="connector-line"></div>
+    </div>
+
+    <!-- Founder Cards -->
+    <div class="founders-grid">
+
+      <!-- Founder 1 -->
+      <div class="founder-card fade-in">
+        <div class="founder-avatar-wrap">
+          <div class="founder-avatar-ring"></div>
+          <!-- <div class="founder-avatar">DF</div> -->
+          <img src="image/DF.png" alt="" class="founder-avatar" onerror="this.style.display='none'"/>
+        </div>
+        <div class="founder-name">Dharmendrabhai Fefar</div>
+        <div class="founder-role">
+          <i class="bi bi-person-badge-fill"></i> Chairman
+        </div>
+        <div class="founder-divider"></div>
+        <div class="founder-tag">
+          <i class="bi bi-star-fill"></i> Founder
+        </div>
+        <div class="founder-tag" style="margin-top:6px;">
+          <i class="bi bi-building"></i> Unique E Bike
+        </div>
+      </div>
+
+      <!-- Founder 2 -->
+      <div class="founder-card fade-in" style="animation-delay:0.15s;">
+        <div class="founder-avatar-wrap">
+          <div class="founder-avatar-ring" style="animation-direction:reverse;"></div>
+          <!-- <div class="founder-avatar">MF</div> -->
+          <img src="image/MF.png" alt="" class="founder-avatar" onerror="this.style.display='none'"/>
+        </div>
+        <div class="founder-name">Manishbhai Fefar</div>
+        <div class="founder-role">
+          <i class="bi bi-briefcase-fill"></i> CEO
+        </div>
+        <div class="founder-divider"></div>
+        <div class="founder-tag">
+          <i class="bi bi-star-fill"></i> Founder
+        </div>
+        <div class="founder-tag" style="margin-top:6px;">
+          <i class="bi bi-building"></i> Unique E Bike
+        </div>
+      </div>
+
+      <!-- Founder 3 -->
+      <div class="founder-card fade-in" style="animation-delay:0.3s;">
+        <div class="founder-avatar-wrap">
+          <div class="founder-avatar-ring"></div>
+          <!-- <div .founder-name>SF</div> -->
+          <img src="image/SF.png" alt="" class="founder-avatar" onerror="this.style.display='none'"/>
+        </div>
+        <div class="founder-name">Satishbhai Fefar</div>
+        <div class="founder-role">
+          <i class="bi bi-diagram-3-fill"></i> Director
+        </div>
+        <div class="founder-divider"></div>
+        <div class="founder-tag">
+          <i class="bi bi-star-fill"></i> Founder
+        </div>
+        <div class="founder-tag" style="margin-top:6px;">
+          <i class="bi bi-building"></i> Unique E Bike
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
 
 <!-- ===== CONTACT ===== -->
 <section id="contact" class="section">
